@@ -1,0 +1,24 @@
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\bin\Debug\net6.0-windows\Routine View.exe
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\bin\Debug\net6.0-windows\Routine View.deps.json
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\bin\Debug\net6.0-windows\Routine View.runtimeconfig.json
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\bin\Debug\net6.0-windows\Routine View.dll
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\bin\Debug\net6.0-windows\Routine View.pdb
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\obj\Debug\net6.0-windows\Routine View.csproj.AssemblyReference.cache
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\obj\Debug\net6.0-windows\Routine_View.Form1.resources
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\obj\Debug\net6.0-windows\Routine View.csproj.GenerateResource.cache
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\obj\Debug\net6.0-windows\Routine View.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\obj\Debug\net6.0-windows\Routine View.AssemblyInfoInputs.cache
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\obj\Debug\net6.0-windows\Routine View.AssemblyInfo.cs
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\obj\Debug\net6.0-windows\Routine View.csproj.CoreCompileInputs.cache
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\obj\Debug\net6.0-windows\Routine View.dll
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\obj\Debug\net6.0-windows\refint\Routine View.dll
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\obj\Debug\net6.0-windows\Routine View.pdb
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\obj\Debug\net6.0-windows\Routine View.genruntimeconfig.cache
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\obj\Debug\net6.0-windows\ref\Routine View.dll
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\kauat\OneDrive\Documentos\BD\Projeto\Routine View\obj\Debug\net6.0-windows\Routine View.csproj.CopyComplete
