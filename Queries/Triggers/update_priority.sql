@@ -1,50 +1,91 @@
 USE [Routine View]
 GO
-DROP TRIGGER if exists update_priority  
-go
+
+DROP TRIGGER IF EXISTS update_priority
+GO
+
 CREATE TRIGGER update_priority ON Task
 AFTER INSERT
 AS
 BEGIN
-    DECLARE @urgency INT;
-    DECLARE @urgencyRef varchar(10);
-    DECLARE @deadlineRef DATETIME;
-    
-    DECLARE @taskID INT;
-    DECLARE @title VARCHAR(100);
-    DECLARE @description VARCHAR(100);
-    DECLARE @importance INT;
-    DECLARE @deadline DATETIME;
-    DECLARE @state VARCHAR(10);
-    DECLARE @priority INT;
-    DECLARE @stackID INT;
-    DECLARE @conclusion DATETIME;
-    DECLARE @userID INT;
+    SET NOCOUNT ON;
 
-    DECLARE cursor_tasks CURSOR FOR
-    SELECT Code, Title, [Description], Importance, Deadline, [State], [Priority], [StackID], [Conclusion], [UserID]
-    FROM inserted;
-
-    OPEN cursor_tasks;
-    FETCH NEXT FROM cursor_tasks INTO @taskID, @title, @description, @importance, @deadline, @state, @priority, @stackID, @conclusion, @userID;
-
-    WHILE @@FETCH_STATUS = 0
+    -- Verifica se há uma transação em andamento
+    IF @@TRANCOUNT > 0
     BEGIN
-        SELECT @deadlineRef = Deadline FROM Task WHERE Code = @taskID;
-        SET @urgency = DATEDIFF(MINUTE, GETDATE(), @deadlineRef) / 60;
+        -- Verifica se a transação é uma transação explícita
+        IF XACT_STATE() = 1
+        BEGIN
+            -- Transação explícita em andamento, realizar as atualizações
+            UPDATE t
+            SET t.[Priority] = CASE
+                                  WHEN DATEDIFF(MINUTE, GETDATE(), i.[Deadline]) / 60 BETWEEN 0 AND 24 THEN
+                                      CASE
+                                          WHEN i.[Importance] >= 1 AND i.[Importance] < 3 THEN 3
+                                          WHEN i.[Importance] >= 3 AND i.[Importance] <= 5 THEN 5
+                                      END
+                                  WHEN DATEDIFF(MINUTE, GETDATE(), i.[Deadline]) / 60 BETWEEN 24 AND 48 THEN
+                                      CASE
+                                          WHEN i.[Importance] >= 1 AND i.[Importance] < 3 THEN 2
+                                          WHEN i.[Importance] >= 3 AND i.[Importance] <= 5 THEN 4
+                                      END
+                                  WHEN DATEDIFF(MINUTE, GETDATE(), i.[Deadline]) / 60 >= 48 THEN
+                                      CASE
+                                          WHEN i.[Importance] >= 1 AND i.[Importance] < 3 THEN 1
+                                          WHEN i.[Importance] >= 3 AND i.[Importance] <= 5 THEN 3
+                                      END
+                              END
+            FROM Task t
+            INNER JOIN inserted i ON t.Code = i.Code;
 
-        PRINT str(@urgency);
+            -- Verifica se ocorreram erros
+            IF @@ERROR <> 0
+            BEGIN
+                -- Ocorreu um erro, desfazer a transação
+                ROLLBACK;
+                RETURN;
+            END
+        END
+        ELSE
+        BEGIN
+            -- Transação implícita em andamento, não é possível realizar atualizações
+            RAISERROR('A transação em andamento é implícita. O trigger "update_priority" requer uma transação explícita.', 16, 1);
+            RETURN;
+        END
+    END
+    ELSE
+    BEGIN
+        -- Nenhuma transação em andamento, realizar as atualizações sem transação
+        BEGIN TRANSACTION;
 
-        IF 0 <= @urgency AND @urgency <= 24
-            set @urgencyRef  = 'High'
-        ELSE IF 24 <= @urgency AND @urgency <= 48
-            set @urgencyRef  = 'Mid'
-        ELSE IF 48 <= @urgency
-            set @urgencyRef  = 'Low'
+        BEGIN TRY
+            UPDATE t
+            SET t.[Priority] = CASE
+                                  WHEN DATEDIFF(MINUTE, GETDATE(), i.[Deadline]) / 60 BETWEEN 0 AND 24 THEN
+                                      CASE
+                                          WHEN i.[Importance] >= 1 AND i.[Importance] < 3 THEN 3
+                                          WHEN i.[Importance] >= 3 AND i.[Importance] <= 5 THEN 5
+                                      END
+                                  WHEN DATEDIFF(MINUTE, GETDATE(), i.[Deadline]) / 60 BETWEEN 24 AND 48 THEN
+                                      CASE
+                                          WHEN i.[Importance] >= 1 AND i.[Importance] < 3 THEN 2
+                                          WHEN i.[Importance] >= 3 AND i.[Importance] <= 5 THEN 4
+                                      END
+                                  WHEN DATEDIFF(MINUTE, GETDATE(), i.[Deadline]) / 60 >= 48 THEN
+                                      CASE
+                                          WHEN i.[Importance] >= 1 AND i.[Importance] < 3 THEN 1
+                                          WHEN i.[Importance] >= 3 AND i.[Importance] <= 5 THEN 3
+                                      END
+                              END
+            FROM Task t
+            INNER JOIN inserted i ON t.Code = i.Code;
 
-        FETCH NEXT FROM cursor_tasks INTO @taskID, @title, @description, @importance, @deadline, @state, @priority, @stackID, @conclusion, @userID;
-    END;
-
-    CLOSE cursor_tasks;
-    DEALLOCATE cursor_tasks;
-END;
+            COMMIT;
+        END TRY
+        BEGIN CATCH
+            -- Ocorreu um erro, desfazer a transação
+            ROLLBACK;
+            THROW;
+        END CATCH
+    END
+END

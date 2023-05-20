@@ -21,10 +21,10 @@ go
 INSERT INTO [Task] (Title, [Description], Importance, Deadline, [Priority], [StackID], [UserID])
 VALUES ('Enviar relatório semanal', 'Preparar e enviar relatório de desempenho semanal da equipe', 2, '2023-06-19 09:00:00', 3, 1, 10),
 
-('Atualizar planilha de vendas', 'Inserir os dados de vendas atualizados na planilha de acompanhamento', 1, '2023-07-20 14:30:00', 2, 2, 10),
+('Atualizar planilha de vendas', 'Inserir os dados de vendas atualizados na planilha de acompanhamento', 4, '2023-07-20 14:30:00', 2, 2, 10),
  ('Realizar reunião de equipe', 'Agendar e conduzir uma reunião com a equipe para alinhar as metas do mês', 3, '2023-05-21 11:00:00', 1, 1, 10),
 
- ('Enviar convites para evento', 'Elaborar e enviar convites para os participantes do evento corporativo', 2, '2023-09-22 16:30:00', 2, 2, 10)/*,
+ ('Enviar convites para evento', 'Elaborar e enviar convites para os participantes do evento corporativo', 5, '2023-09-22 16:30:00', 2, 2, 10)/*,
  
  ('Preparar apresentação de vendas', 'Criar uma apresentação persuasiva para a reunião com potenciais clientes', 1, '2023-05-23 13:00:00', 1, 1, 10),
 
@@ -62,14 +62,15 @@ VALUES ('Enviar relatório semanal', 'Preparar e enviar relatório de desempenho s
 
  ('Enviar relatório trimestral', 'Preparar e enviar o relatório de desempenho trimestral da empresa', 2, '2023-06-09 10:30:00', 2, 2, 10)*/;
 
+ /*
 UPDATE [Task] 
 SET StackID = 3 
 WHERE [Task].[Title] = 'Analisar relatório';
-
+*/
 
 --select * from [User]; 
---select * from [Stack]; 
---select Code, Title,StackID from [Task]; 
+select * from [Stack]; 
+select  Title,Priority from [Task]; 
 
 
 
