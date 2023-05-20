@@ -68,9 +68,9 @@ SET StackID = 3
 WHERE [Task].[Title] = 'Analisar relatório';
 */
 
---select * from [User]; 
+select * from [User]; 
 select * from [Stack]; 
-select  Title,Priority from [Task]; 
+select * [Task]; 
 
 
 

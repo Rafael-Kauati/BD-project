@@ -1,3 +1,6 @@
+use [Routine View]
+go
+
 DROP PROCEDURE IF EXISTS GetTasksByUser;
 GO
 
@@ -6,13 +9,13 @@ CREATE PROCEDURE GetTasksByUser
 AS
 BEGIN
     SELECT Code, Title, [Description], Importance, Deadline
-    INTO #Hello
-    FROM Task
+    INTO #temp
+    FROM [Task]
     WHERE Task.UserID = @ID_user
-    ORDER BY Importance DESC;
+    --ORDER BY Importance DESC;
 
     SELECT *
-    FROM #Hello
+    FROM #temp
     ORDER BY Importance DESC, ABS(DATEDIFF(day, GETDATE(), Deadline));
 END
 GO

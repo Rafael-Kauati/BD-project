@@ -48,14 +48,12 @@ BEGIN
         END
         ELSE
         BEGIN
-            -- Transação implícita em andamento, não é possível realizar atualizações
             RAISERROR('A transação em andamento é implícita. O trigger "update_priority" requer uma transação explícita.', 16, 1);
             RETURN;
         END
     END
     ELSE
     BEGIN
-        -- Nenhuma transação em andamento, realizar as atualizações sem transação
         BEGIN TRANSACTION;
 
         BEGIN TRY
@@ -83,7 +81,7 @@ BEGIN
             COMMIT;
         END TRY
         BEGIN CATCH
-            -- Ocorreu um erro, desfazer a transação
+            -- Ocorreu um erro -> Desfazer a transação
             ROLLBACK;
             THROW;
         END CATCH
