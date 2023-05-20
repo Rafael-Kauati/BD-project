@@ -70,7 +70,7 @@ WHERE [Task].[Title] = 'Analisar relatório';
 
 select * from [User]; 
 select * from [Stack]; 
-select * [Task]; 
+select * from [Task]; 
 
 
 
