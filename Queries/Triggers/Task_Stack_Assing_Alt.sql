@@ -17,12 +17,12 @@ BEGIN
     DECLARE @Code INT, @Title VARCHAR(100), @Description VARCHAR(100), @Importance INT, @Deadline DATETIME, @Priority INT, @StackID INT, @Conclusion DATETIME, @UserID INT
 
     -- Declarar o cursor
-    DECLARE cursorName CURSOR FOR
+    DECLARE taskCursor CURSOR FOR
     SELECT Code, Title, [Description], Importance, Deadline, [Priority], [StackID], [Conclusion], [UserID]
     FROM inserted
 
     -- Abrir o cursor
-    OPEN cursorName
+    OPEN taskCursor
 
     -- Buscar a primeira linha
     FETCH NEXT FROM cursorName INTO @Code, @Title, @Description, @Importance, @Deadline, @Priority, @StackID, @Conclusion, @UserID
@@ -54,7 +54,7 @@ BEGIN
     END
 
     -- Fechar e desalocar o cursor
-    CLOSE cursorName
-    DEALLOCATE cursorName
+    CLOSE taskCursor
+    DEALLOCATE taskCursor
     
 END
