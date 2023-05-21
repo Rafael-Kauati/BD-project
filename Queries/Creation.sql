@@ -54,7 +54,6 @@ create table Task_Group(
     Code int identity (1,5),
     [Title] varchar(50) not null,
     [Description] varchar(100) ,
-    Deadline  datetime NOT NULL,
     [Num_max_task] int default 10, 
     [Curr_undone_task_num] int not null default 10,
     --[Curr_toDo_task_num] substituir esta coluna por um procedure
@@ -64,6 +63,12 @@ create table Task_Group(
 
 );
 
+--Vamos mudar o domínio do projetos
+--Não vamos mais trabalhar com especialização
+CREATE TABLE Task_Group_Assoc (
+    Assoc_Code INT IDENTITY (1,5),
+    CriteriaType VARCHAR(20) CHECK (CriteriaType IN ('Importance', 'Deadline', 'Category'))
+);
 
 create table Reward(
     Reward_id int identity(1,5),
