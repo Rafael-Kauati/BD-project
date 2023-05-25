@@ -1,6 +1,9 @@
 USE [Routine View]
 GO
 
+DROP TRIGGER IF EXISTS	Task_Stack_Assign 
+GO
+
 CREATE TRIGGER Task_Stack_Assign  ON Task
 INSTEAD OF INSERT
 AS
@@ -25,7 +28,7 @@ BEGIN
     OPEN taskCursor
 
     -- Buscar a primeira linha
-    FETCH NEXT FROM cursorName INTO @Code, @Title, @Description, @Importance, @Deadline, @Priority, @StackID, @Conclusion, @UserID
+    FETCH NEXT FROM taskCursor INTO @Code, @Title, @Description, @Importance, @Deadline, @Priority, @StackID, @Conclusion, @UserID
 
     -- Iterar sobre as linhas
     WHILE @@FETCH_STATUS = 0
@@ -50,7 +53,7 @@ BEGIN
 		WHERE StackID = @StackID;
 
         -- Buscar a próxima linha
-        FETCH NEXT FROM cursorName INTO @Code, @Title, @Description, @Importance, @Deadline, @Priority, @StackID, @Conclusion, @UserID
+        FETCH NEXT FROM taskCursor INTO @Code, @Title, @Description, @Importance, @Deadline, @Priority, @StackID, @Conclusion, @UserID
     END
 
     -- Fechar e desalocar o cursor

@@ -1,6 +1,7 @@
 USE [Routine View]
 GO
-
+DROP TRIGGER IF EXISTS	Task_Stack_Assign_Update 
+GO
 CREATE TRIGGER Task_Stack_Assign_Update ON Task
 INSTEAD OF UPDATE
 AS

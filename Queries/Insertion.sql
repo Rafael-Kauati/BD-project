@@ -1,8 +1,6 @@
 use [Routine View]
 go
 
-
-
 insert into 
 	[User] 
 	( [Name], [Email], [Password],[DoB]) 

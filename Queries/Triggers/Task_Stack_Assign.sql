@@ -1,4 +1,4 @@
-USE [Routine View]
+/*USE [Routine View]
 GO
 
 CREATE TRIGGER Task_Stack_Assign  ON Task
@@ -57,3 +57,4 @@ BEGIN
     DEALLOCATE cursorName
     
 END
+*/

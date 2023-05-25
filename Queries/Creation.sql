@@ -1,9 +1,8 @@
 use [Routine View]
 go
 
-DROP PROCEDURE IF EXISTS selectTasksByStack;
 
-DROP TABLE IF EXISTS [Reward],[Task_Group],[TaskAchievement],[Achieviement], [Task],[Stack],[User]
+DROP TABLE IF EXISTS [Reward],[Task_Group_Assoc],[Task_Group],[TaskAchievement],[Achieviement], [Task],[Stack],[User]
 GO
 
 create table [User] (	

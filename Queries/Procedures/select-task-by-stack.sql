@@ -4,6 +4,7 @@ go
 DROP PROCEDURE IF EXISTS selectTasksByStack;
 GO
 
+/*
 create procedure selectTasksByStack( @stackname  varchar(10) )
 as	
 begin
@@ -22,3 +23,4 @@ end
 go
 
 exec selectTasksByStack 'Doing';
+*/
