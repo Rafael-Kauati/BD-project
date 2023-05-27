@@ -1,0 +1,31 @@
+C:\Users\migue\source\repos\projeto bd\obj\Debug\netcoreapp3.1\projeto_bd.csproj.AssemblyReference.cache
+C:\Users\migue\source\repos\projeto bd\obj\Debug\netcoreapp3.1\projeto_bd.Form1.resources
+C:\Users\migue\source\repos\projeto bd\obj\Debug\netcoreapp3.1\projeto_bd.csproj.GenerateResource.cache
+C:\Users\migue\source\repos\projeto bd\obj\Debug\netcoreapp3.1\projeto_bd.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\migue\source\repos\projeto bd\obj\Debug\netcoreapp3.1\projeto_bd.AssemblyInfoInputs.cache
+C:\Users\migue\source\repos\projeto bd\obj\Debug\netcoreapp3.1\projeto_bd.AssemblyInfo.cs
+C:\Users\migue\source\repos\projeto bd\obj\Debug\netcoreapp3.1\projeto_bd.csproj.CoreCompileInputs.cache
+C:\Users\migue\source\repos\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.csproj.AssemblyReference.cache
+C:\Users\migue\source\repos\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.Form1.resources
+C:\Users\migue\source\repos\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.csproj.GenerateResource.cache
+C:\Users\migue\source\repos\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\migue\source\repos\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.AssemblyInfoInputs.cache
+C:\Users\migue\source\repos\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.AssemblyInfo.cs
+C:\Users\migue\source\repos\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.csproj.CoreCompileInputs.cache
+C:\Users\migue\source\repos\projeto_bd\bin\Debug\netcoreapp3.1\projeto_bd.exe
+C:\Users\migue\source\repos\projeto_bd\bin\Debug\netcoreapp3.1\projeto_bd.deps.json
+C:\Users\migue\source\repos\projeto_bd\bin\Debug\netcoreapp3.1\projeto_bd.runtimeconfig.json
+C:\Users\migue\source\repos\projeto_bd\bin\Debug\netcoreapp3.1\projeto_bd.runtimeconfig.dev.json
+C:\Users\migue\source\repos\projeto_bd\bin\Debug\netcoreapp3.1\projeto_bd.dll
+C:\Users\migue\source\repos\projeto_bd\bin\Debug\netcoreapp3.1\projeto_bd.pdb
+C:\Users\migue\source\repos\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.dll
+C:\Users\migue\source\repos\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.pdb
+C:\Users\migue\source\repos\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.genruntimeconfig.cache
+C:\Users\migue\source\repos\projeto_bd\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\migue\source\repos\projeto_bd\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\migue\source\repos\projeto_bd\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\migue\source\repos\projeto_bd\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\migue\source\repos\projeto_bd\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\migue\source\repos\projeto_bd\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\migue\source\repos\projeto_bd\obj\Debug\netcoreapp3.1\WindowsFormsApp.Form2.resources
+C:\Users\migue\source\repos\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.Form3.resources
