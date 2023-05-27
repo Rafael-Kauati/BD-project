@@ -6,12 +6,11 @@ IF OBJECT_ID('concludeTask') IS NOT NULL
     DROP PROCEDURE concludeTask
 GO
 
--- Cria o procedimento 'concludeTask'
 CREATE PROCEDURE concludeTask (@taskname VARCHAR(30))
 AS
 BEGIN
     BEGIN TRY
-        BEGIN TRANSACTION; -- Inicia a transação
+        BEGIN TRANSACTION;
 
         DECLARE @taskcode INT;
         DECLARE @taskdeadline DATETIME;
@@ -28,14 +27,11 @@ BEGIN
         INSERT INTO [Reward] ([Task_code], [Task_Deadline], [Date_Time], [Reward_Value])
         VALUES (@taskcode, ISNULL(@taskdeadline, GETDATE()), GETDATE(), @taskpriority * 2);
 
-        -- Verifica o número de tarefas concluídas
         DECLARE @completedTasksCount INT;
         SELECT @completedTasksCount = COUNT(*) FROM [Task] WHERE StackID = 3;
 
-        -- Verifica se o número de tarefas concluídas atingiu um determinado limite
-        IF @completedTasksCount >= 10 -- Defina o número desejado de tarefas concluídas para ganhar o achievement
+        IF @completedTasksCount >= 10
         BEGIN
-            -- Lógica para ganhar o achievement
             INSERT INTO [Achievement] ([Title], [Date_Time])
             VALUES ('Concluir 10 tarefas', GETDATE());
         END
@@ -50,5 +46,4 @@ BEGIN
 END
 GO
 
--- Exemplo de chamada da procedure
 EXEC concludeTask 'Conferir estoque';

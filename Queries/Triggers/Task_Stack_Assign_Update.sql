@@ -6,13 +6,14 @@ CREATE TRIGGER Task_Stack_Assign_Update ON Task
 INSTEAD OF UPDATE
 AS
 BEGIN
-    SET XACT_ABORT ON; -- Habilita o XACT_ABORT para lidar com erros de transação
-
     BEGIN TRY
         BEGIN TRANSACTION; -- Inicia a transação
 
         DECLARE @OldStackID INT;
         DECLARE @NewStackID INT;
+
+		DECLARE @Code INT, @Title VARCHAR(100), @Description VARCHAR(100), @Importance INT, @Deadline DATETIME, @Priority INT, @StackID INT, @Conclusion DATETIME, @UserID INT
+
 
         -- Obtém a antiga StackID da tabela Task antes da atualização
         SELECT @OldStackID = t.[StackID]

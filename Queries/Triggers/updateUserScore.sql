@@ -10,8 +10,6 @@ as
 begin
 	declare @newReward int; declare @userid int;
 	
-	select * from [User];
-
 	select 
 	@newReward = [Reward_Value],
 	@userid = Task.UserID

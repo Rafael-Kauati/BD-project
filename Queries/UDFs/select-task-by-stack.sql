@@ -27,6 +27,6 @@ RETURN
         s.[Name] = @stackName
 );
 GO
-
+/*
 SELECT *
-FROM dbo.GetAllTasksInStack('Doing');
+FROM dbo.GetAllTasksInStack('Doing');*/
