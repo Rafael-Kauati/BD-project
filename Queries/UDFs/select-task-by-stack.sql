@@ -12,6 +12,7 @@ RETURN
     SELECT
         t.Code AS TaskCode,
         t.Title AS TaskTitle,
+        t.TaskGroupCode AS TaskGroup,
         t.Description AS TaskDescription,
         t.Importance AS TaskImportance,
         t.Deadline AS TaskDeadline,
@@ -24,7 +25,8 @@ RETURN
         [Stack] s
         JOIN [Task] t ON s.StackID = t.StackID
     WHERE
-        s.[Name] = @stackName
+        s.[Name] = @stackName 
+        AND t.TaskGroupCode IS NULL
 );
 GO
 /*

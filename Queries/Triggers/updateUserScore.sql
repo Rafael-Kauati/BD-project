@@ -1,23 +1,25 @@
 use [Routine View]
 go
 
-drop trigger if exists updateUserScore
-go
+DROP TRIGGER IF EXISTS updateUserScore;
+GO
 
-create trigger updateUserScore on [Reward] 
-after insert 
-as 
-begin
-	declare @newReward int; declare @userid int;
-	
-	select 
-	@newReward = [Reward_Value],
-	@userid = Task.UserID
-	from inserted 
-	inner join Task on inserted.Task_code = Task.Code;
+CREATE TRIGGER updateUserScore
+ON [Reward]
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @newReward INT;
+    DECLARE @userid INT;
 
-	update [User]
-	set [Score] = [Score] + @newReward
-	where [User].ID = @userid;
-	
-end;
+    SELECT @newReward = [Reward_Value],
+           @userid = Task.UserID
+    FROM inserted
+    INNER JOIN Task ON inserted.Task_code = Task.Code;
+
+    UPDATE [User]
+    SET [Score] = [Score] + @newReward
+    WHERE [User].ID = @userid;
+    
+END;
+GO
