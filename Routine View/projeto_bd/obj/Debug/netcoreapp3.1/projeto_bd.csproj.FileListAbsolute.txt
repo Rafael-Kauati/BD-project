@@ -29,3 +29,28 @@ C:\Users\migue\source\repos\projeto_bd\bin\Debug\netcoreapp3.1\runtimes\unix\lib
 C:\Users\migue\source\repos\projeto_bd\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\migue\source\repos\projeto_bd\obj\Debug\netcoreapp3.1\WindowsFormsApp.Form2.resources
 C:\Users\migue\source\repos\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.Form3.resources
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\bin\Debug\netcoreapp3.1\projeto_bd.exe
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\bin\Debug\netcoreapp3.1\projeto_bd.deps.json
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\bin\Debug\netcoreapp3.1\projeto_bd.runtimeconfig.json
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\bin\Debug\netcoreapp3.1\projeto_bd.runtimeconfig.dev.json
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\bin\Debug\netcoreapp3.1\projeto_bd.dll
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\bin\Debug\netcoreapp3.1\projeto_bd.pdb
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.csproj.AssemblyReference.cache
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.Form1.resources
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\obj\Debug\netcoreapp3.1\WindowsFormsApp.Form2.resources
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.Form3.resources
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.csproj.GenerateResource.cache
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.AssemblyInfoInputs.cache
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.AssemblyInfo.cs
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.csproj.CoreCompileInputs.cache
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.csproj.CopyComplete
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.dll
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.pdb
+C:\Users\kauat\OneDrive\Documentos\BD\BD-project-curr\BD-project\Routine View\projeto_bd\obj\Debug\netcoreapp3.1\projeto_bd.genruntimeconfig.cache
