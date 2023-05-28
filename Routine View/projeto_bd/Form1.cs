@@ -9,18 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using WindowsFormsApp;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace projeto_bd
 {
     public partial class Form1 : Form
     {
         private SqlConnection cn;
-        private string connectionString = "data source=.\\;integrated security=true;initial catalog=Routine View";
+        private string connectionString = "data source=.\\SQLEXPRESS;integrated security = true; initial catalog = Routine View";
         private Form2 form2;
+
         public Form2 Form2Instance
         {
-            get { return form2;}
+            get { return form2; }
         }
+
 
 
         public Form1()
@@ -38,16 +41,38 @@ namespace projeto_bd
         {
             string email = EmailBox.Text;
             string password = PasswordBox.Text;
+            const bool boolinha = true;
 
-            if (VerifyLogin(email, password))
+            if (boolinha)
             {
-                MessageBox.Show("Login successful!");
+                //MessageBox.Show("Login successful!");
+                int userid;
+                string connectionString = "data source=.\\SQLEXPRESS;integrated security=true;initial catalog=Routine View";
+                string query = "SELECT ID FROM [User] WHERE Password = @pass AND Email = @email";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@pass", password);
+                        command.Parameters.AddWithValue("@email", email);
+
+                        //userid = (int)command.ExecuteScalar();
+                        userid = 10;
+                    }
+                }
+
+                // Agora você tem o ID armazenado na variável 'userid' e pode utilizá-lo conforme necessário.
+
+
 
                 // Abrir o Form2
                 if (form2 == null || form2.IsDisposed)
                 {
                     this.Hide();
-                    form2 = new Form2();
+                    form2 = new Form2(userid);
                     form2.Show();
                 }
                 else

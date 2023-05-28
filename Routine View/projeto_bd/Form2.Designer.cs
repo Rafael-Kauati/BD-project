@@ -12,126 +12,207 @@ namespace WindowsFormsApp
 
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            this.SuspendLayout();
+            dataGridView1 = new DataGridView();
+            dataGridView2 = new DataGridView();
+            dataGridView3 = new DataGridView();
+            button1 = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            button2 = new Button();
+            button3 = new Button();
+            UserName = new Label();
+            ScoreLabel = new Label();
+            CurrScore = new Label();
+            label4 = new Label();
+            taskGroup = new DataGridView();
+            Tasks = new Label();
+            label5 = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)taskGroup).BeginInit();
+            SuspendLayout();
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeight = 29;
-            this.dataGridView1.Location = new System.Drawing.Point(91, 23);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1047, 184);
-            this.dataGridView1.TabIndex = 0;
+            dataGridView1.ColumnHeadersHeight = 29;
+            dataGridView1.Location = new Point(147, 97);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(657, 184);
+            dataGridView1.TabIndex = 0;
             // 
             // dataGridView2
             // 
-            this.dataGridView2.ColumnHeadersHeight = 29;
-            this.dataGridView2.Location = new System.Drawing.Point(91, 213);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(1047, 175);
-            this.dataGridView2.TabIndex = 1;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            dataGridView2.ColumnHeadersHeight = 29;
+            dataGridView2.Location = new Point(147, 287);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.Size = new Size(657, 175);
+            dataGridView2.TabIndex = 1;
+            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
             // dataGridView3
             // 
-            this.dataGridView3.ColumnHeadersHeight = 29;
-            this.dataGridView3.Location = new System.Drawing.Point(88, 403);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.Size = new System.Drawing.Size(1050, 177);
-            this.dataGridView3.TabIndex = 2;
-            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            dataGridView3.ColumnHeadersHeight = 29;
+            dataGridView3.Location = new Point(144, 468);
+            dataGridView3.Name = "dataGridView3";
+            dataGridView3.RowHeadersWidth = 51;
+            dataGridView3.Size = new Size(660, 177);
+            dataGridView3.TabIndex = 2;
+            dataGridView3.CellContentClick += dataGridView3_CellContentClick;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1214, 586);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(187, 63);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Create new Task";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new Point(18, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(187, 63);
+            button1.TabIndex = 3;
+            button1.Text = "Create new Task";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 114);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "TO DO";
+            label1.AutoSize = true;
+            label1.Location = new Point(18, 188);
+            label1.Name = "label1";
+            label1.Size = new Size(41, 15);
+            label1.TabIndex = 5;
+            label1.Text = "TO DO";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 267);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "DOING";
+            label2.AutoSize = true;
+            label2.Location = new Point(15, 341);
+            label2.Name = "label2";
+            label2.Size = new Size(44, 15);
+            label2.TabIndex = 6;
+            label2.Text = "DOING";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 476);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "DONE";
+            label3.AutoSize = true;
+            label3.Location = new Point(18, 550);
+            label3.Name = "label3";
+            label3.Size = new Size(39, 15);
+            label3.TabIndex = 7;
+            label3.Text = "DONE";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1179, 106);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(160, 36);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Start Task";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.Location = new Point(837, 188);
+            button2.Name = "button2";
+            button2.Size = new Size(160, 36);
+            button2.TabIndex = 8;
+            button2.Text = "Start Task";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1188, 267);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(160, 36);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Done";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            button3.Location = new Point(837, 351);
+            button3.Name = "button3";
+            button3.Size = new Size(160, 36);
+            button3.TabIndex = 9;
+            button3.Text = "Done";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // UserName
+            // 
+            UserName.AutoSize = true;
+            UserName.Location = new Point(267, 36);
+            UserName.Name = "UserName";
+            UserName.Size = new Size(62, 15);
+            UserName.TabIndex = 10;
+            UserName.Text = "UserName";
+            // 
+            // ScoreLabel
+            // 
+            ScoreLabel.AutoSize = true;
+            ScoreLabel.Location = new Point(374, 36);
+            ScoreLabel.Name = "ScoreLabel";
+            ScoreLabel.Size = new Size(45, 15);
+            ScoreLabel.TabIndex = 11;
+            ScoreLabel.Text = "Score : ";
+            ScoreLabel.Click += label4_Click;
+            // 
+            // CurrScore
+            // 
+            CurrScore.AutoSize = true;
+            CurrScore.Location = new Point(425, 36);
+            CurrScore.Name = "CurrScore";
+            CurrScore.Size = new Size(59, 15);
+            CurrScore.TabIndex = 12;
+            CurrScore.Text = "CurrScore";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(223, 36);
+            label4.Name = "label4";
+            label4.Size = new Size(25, 15);
+            label4.TabIndex = 13;
+            label4.Text = "Hi !";
+            label4.Click += label4_Click_1;
+            // 
+            // taskGroup
+            // 
+            taskGroup.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            taskGroup.Location = new Point(1027, 97);
+            taskGroup.Name = "taskGroup";
+            taskGroup.RowTemplate.Height = 25;
+            taskGroup.Size = new Size(552, 184);
+            taskGroup.TabIndex = 14;
+            // 
+            // Tasks
+            // 
+            Tasks.AutoSize = true;
+            Tasks.Location = new Point(413, 72);
+            Tasks.Name = "Tasks";
+            Tasks.Size = new Size(34, 15);
+            Tasks.TabIndex = 15;
+            Tasks.Text = "Tasks";
+            Tasks.Click += label5_Click_1;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(1148, 72);
+            label5.Name = "label5";
+            label5.Size = new Size(75, 15);
+            label5.TabIndex = 16;
+            label5.Text = "Tasks Groups";
             // 
             // Form2
             // 
-            this.ClientSize = new System.Drawing.Size(1823, 863);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView3);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            ClientSize = new Size(1823, 863);
+            Controls.Add(label5);
+            Controls.Add(Tasks);
+            Controls.Add(taskGroup);
+            Controls.Add(label4);
+            Controls.Add(CurrScore);
+            Controls.Add(ScoreLabel);
+            Controls.Add(UserName);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(button1);
+            Controls.Add(dataGridView3);
+            Controls.Add(dataGridView2);
+            Controls.Add(dataGridView1);
+            Name = "Form2";
+            Load += Form2_Load_1;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)taskGroup).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private DataGridView dataGridView2;
@@ -142,5 +223,12 @@ namespace WindowsFormsApp
         private Label label3;
         private Button button2;
         private Button button3;
+        private Label UserName;
+        private Label ScoreLabel;
+        private Label CurrScore;
+        private Label label4;
+        private DataGridView taskGroup;
+        private Label Tasks;
+        private Label label5;
     }
 }
