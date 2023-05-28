@@ -23,19 +23,37 @@ VALUES ('Enviar relatório semanal', 'Preparar e enviar relatório de desempenho s
  ('Realizar reunião de equipe', 'Agendar e conduzir uma reunião com a equipe para alinhar as metas do mês', 3, '2023-05-29 11:00:00',  10),
 
  ('Enviar convites para evento', 'Elaborar e enviar convites para os participantes do evento corporativo', 5, '2023-09-22 16:30:00',   10);
+
  
 
+ insert into [Task_Group_Assoc] (CriteriaType) values
+('Importance'), ('Deadline'), ('Category');
 
-exec startTask 'Enviar relatório semanal';
-select * from [Task];
+insert into [Task_Group]  ([Assoc_code],[StackID], [Title], [DateOfCreation] ) values
+(1, 1, 'Tarefas importantes', GETDATE()),(2, 1, 'Emitir folha de pagamento', GETDATE());
 
-exec concludeTask 'Enviar relatório semanal';
-select * from [Task];
 
+EXECUTE addTaskToGroup 
+@TaskGroupTitle = 'Tarefas importantes', @TaskTitle = 'Enviar relatório semanal';
+
+EXECUTE addTaskToGroup 
+@TaskGroupTitle =  'Tarefas importantes', @TaskTitle = 'Atualizar planilha de vendas';
+
+
+
+EXECUTE addTaskToGroup 
+@TaskGroupTitle =  'Emitir folha de pagamento', @TaskTitle = 'Realizar reunião de equipe';
+
+select * from [Task]; 
+select * from [User]; 
+select * from [Stack]; 
+select * from [Task_Group]; 
+
+select * from getTaskGroup('Tarefas importantes');
 
  /*
-insert into [Task_Group_Assoc] (CriteriaType) values
-('Importance'), ('Deadline'), ('Category');
+exec startTask 'Realizar reunião de equipe';
+ exec concludeTask 'Realizar reunião de equipe';
 
 insert into [Task_Group]  ([Assoc_code],[StackID], [Title], [DateOfCreation] ) values
 (1, 1, 'Tarefas importantes', GETDATE()),(2, 1, 'Emitir folha de pagamento', GETDATE());
@@ -47,11 +65,8 @@ EXECUTE addTaskToGroup
 
 EXECUTE addTaskToGroup 
 @TaskGroupTitle =  'Tarefas importantes', @TaskTitle = 'Atualizar planilha de vendas';
-select * from [User]; 
-select * from [Stack]; 
-select * from [Reward]; 
+
 */
 
-select * from [Task]; 
 
 --select * from [Task_Group]; 

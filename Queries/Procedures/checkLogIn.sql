@@ -24,9 +24,5 @@ BEGIN
 END
 GO
 
-DECLARE @confirmation int;
 
-EXEC checkLogIn @email = 'JSP@ua.pt', @password = 'jayjay', @confirmation = @confirmation OUTPUT;
-
-PRINT @confirmation;
 

@@ -10,13 +10,10 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    -- Verifica se há uma transação em andamento
     IF @@TRANCOUNT > 0
     BEGIN
-        -- Verifica se a transação é uma transação explícita
         IF XACT_STATE() = 1
         BEGIN
-            -- Transação explícita em andamento, realizar as atualizações
             UPDATE t
             SET t.[Priority] = CASE
                                   WHEN DATEDIFF(MINUTE, GETDATE(), i.[Deadline]) / 60 BETWEEN 0 AND 24 THEN
@@ -38,10 +35,8 @@ BEGIN
             FROM Task t
             INNER JOIN inserted i ON t.Code = i.Code;
 
-            -- Verifica se ocorreram erros
             IF @@ERROR <> 0
             BEGIN
-                -- Ocorreu um erro, desfazer a transação
                 ROLLBACK;
                 RETURN;
             END
@@ -81,7 +76,6 @@ BEGIN
             COMMIT;
         END TRY
         BEGIN CATCH
-            -- Ocorreu um erro -> Desfazer a transação
             ROLLBACK;
             THROW;
         END CATCH
