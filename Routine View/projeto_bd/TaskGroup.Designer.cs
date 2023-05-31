@@ -32,6 +32,7 @@
             dataGridView2 = new DataGridView();
             button3 = new Button();
             button1 = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -75,11 +76,22 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2.Location = new Point(654, 438);
+            button2.Name = "button2";
+            button2.Size = new Size(187, 38);
+            button2.TabIndex = 12;
+            button2.Text = "Finish Task";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // TaskGroup
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(907, 592);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(button3);
             Controls.Add(dataGridView2);
@@ -97,5 +109,6 @@
         private DataGridView dataGridView2;
         private Button button3;
         private Button button1;
+        private Button button2;
     }
 }

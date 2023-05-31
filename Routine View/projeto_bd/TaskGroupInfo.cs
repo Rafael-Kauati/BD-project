@@ -10,6 +10,7 @@ namespace Routine_View_Forms
     {
         public string Title { get; set; }
         public int Code { get; set; }
-        public int AssocCode { get; set; }
+        public string isFinished { get; set; }
+        public string criteria { get; set; }
     }
 }

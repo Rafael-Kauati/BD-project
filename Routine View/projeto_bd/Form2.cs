@@ -33,7 +33,7 @@ namespace WindowsFormsApp
             InitializeComponent();
             loadTaskGroups();
 
-            
+
 
             GetUserName(userID);
             GetUserScore(userID);
@@ -110,8 +110,8 @@ namespace WindowsFormsApp
             }
         }
         private void visGroup_Click(object sender, EventArgs e)
-         {
-            if(taskGroup.SelectedRows.Count > 0)
+        {
+            if (taskGroup.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = taskGroup.SelectedRows[0];
                 //MessageBox.Show(selectedRow.Cells["Title"].Value.ToString());
@@ -119,7 +119,7 @@ namespace WindowsFormsApp
                 if (tg == null || tg.IsDisposed)
                 {
 
-                    tg = new TaskGroup(selectedRow.Cells["Title"].Value.ToString());
+                    tg = new TaskGroup(selectedRow.Cells["Title"].Value.ToString(), this);
                     tg.Show();
                 }
                 else
@@ -151,9 +151,10 @@ namespace WindowsFormsApp
 
                             // Obtém os valores das colunas "Title", "Code" e "Assoc_code" da linha atual
                             TaskGroupInfo group = new TaskGroupInfo();
-                            group.Title = reader.GetString(0);
-                            group.Code = reader.GetInt32(1);
-                            group.AssocCode = reader.GetInt32(2);
+                            group.Title = reader.GetString(1);
+                            group.Code = reader.GetInt32(0);
+                            group.isFinished = reader.GetString(2);
+                            group.criteria = reader.GetString(3);
                             dadosList.Add(group);
 
                             //taskGroupsNames = (string[])taskGroupsNames.Append(title);
@@ -173,7 +174,7 @@ namespace WindowsFormsApp
 
         public void LoadDataFromDatabase(string stackName)
         {
-            string query = "SELECT TaskCode, TaskTitle, TaskDescription, TaskImportance, TaskDeadline FROM GetAllTasksInStack(@stackName)";
+            string query = "SELECT TaskCode, TaskTitle, TaskDescription, TaskImportance, TaskDeadline FROM GetAllTasksInStack(@stackName, @userid)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -183,6 +184,7 @@ namespace WindowsFormsApp
                 {
                     // Parâmetro da função
                     command.Parameters.AddWithValue("@stackName", stackName);
+                    command.Parameters.AddWithValue("@userid", userID);
 
                     // Crie um SqlDataAdapter e um DataTable
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -213,7 +215,7 @@ namespace WindowsFormsApp
                 form3.Focus();
             }
         }
-        
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -373,7 +375,7 @@ namespace WindowsFormsApp
 
         }
 
-       
+
     }
 
 }

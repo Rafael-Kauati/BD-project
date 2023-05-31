@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp;
 using static System.Windows.Forms.AxHost;
 
 namespace Routine_View_Forms
@@ -16,11 +17,16 @@ namespace Routine_View_Forms
     {
         static string connectionString = "data source=.\\SQLEXPRESS;integrated security=true;initial catalog=Routine View";
         private string group;
+        private AddTaskToGroup adder;
+        private Form2 f2;
 
-        public TaskGroup(string group)
+        public AddTaskToGroup AddTaskToGroup { get { return adder; } }
+
+        public TaskGroup(string group, Form2 fm2)
         {
             InitializeComponent();
             this.group = group;
+            this.f2 = fm2;
             getTaskFromGroup(group, "ToDo");
             getTaskFromGroup(group, "Done");
         }
@@ -56,6 +62,28 @@ namespace Routine_View_Forms
                 }
             }
         }
+        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand commandd = new SqlCommand("finishGroupTask", connection))
+                {
+                    commandd.CommandType = CommandType.StoredProcedure; 
+
+                    commandd.Parameters.AddWithValue("@taskGroup", group);
+
+                    commandd.ExecuteNonQuery();
+                }
+
+            }
+            f2.loadTaskGroups();
+            getTaskFromGroup(this.group, "ToDo");
+            getTaskFromGroup(this.group, "Done");
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -81,7 +109,17 @@ namespace Routine_View_Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            if (adder == null || adder.IsDisposed)
+            {
+
+                adder = new AddTaskToGroup(group, this);
+                adder.Show();
+            }
+            else
+            {
+                adder.WindowState = FormWindowState.Normal;
+                adder.Focus();
+            }
 
         }
 
@@ -90,6 +128,6 @@ namespace Routine_View_Forms
 
         }
 
-       
+        
     }
 }

@@ -41,7 +41,7 @@ namespace WindowsFormsApp
             dataGridView1.Location = new Point(147, 97);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(657, 184);
+            dataGridView1.Size = new Size(579, 184);
             dataGridView1.TabIndex = 0;
             // 
             // dataGridView2
@@ -50,7 +50,7 @@ namespace WindowsFormsApp
             dataGridView2.Location = new Point(147, 287);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(657, 175);
+            dataGridView2.Size = new Size(579, 175);
             dataGridView2.TabIndex = 1;
             dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
@@ -60,7 +60,7 @@ namespace WindowsFormsApp
             dataGridView3.Location = new Point(144, 468);
             dataGridView3.Name = "dataGridView3";
             dataGridView3.RowHeadersWidth = 51;
-            dataGridView3.Size = new Size(660, 177);
+            dataGridView3.Size = new Size(582, 177);
             dataGridView3.TabIndex = 2;
             dataGridView3.CellContentClick += dataGridView3_CellContentClick;
             // 
@@ -103,7 +103,7 @@ namespace WindowsFormsApp
             // 
             // button2
             // 
-            button2.Location = new Point(837, 188);
+            button2.Location = new Point(732, 167);
             button2.Name = "button2";
             button2.Size = new Size(160, 36);
             button2.TabIndex = 8;
@@ -113,7 +113,7 @@ namespace WindowsFormsApp
             // 
             // button3
             // 
-            button3.Location = new Point(837, 351);
+            button3.Location = new Point(732, 341);
             button3.Name = "button3";
             button3.Size = new Size(160, 36);
             button3.TabIndex = 9;
@@ -162,10 +162,10 @@ namespace WindowsFormsApp
             // taskGroup
             // 
             taskGroup.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            taskGroup.Location = new Point(1027, 97);
+            taskGroup.Location = new Point(948, 97);
             taskGroup.Name = "taskGroup";
             taskGroup.RowTemplate.Height = 25;
-            taskGroup.Size = new Size(552, 184);
+            taskGroup.Size = new Size(462, 184);
             taskGroup.TabIndex = 14;
             // 
             // Tasks
@@ -181,7 +181,7 @@ namespace WindowsFormsApp
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(1148, 72);
+            label5.Location = new Point(1112, 72);
             label5.Name = "label5";
             label5.Size = new Size(75, 15);
             label5.TabIndex = 16;
@@ -189,7 +189,7 @@ namespace WindowsFormsApp
             // 
             // visGroup
             // 
-            visGroup.Location = new Point(1134, 320);
+            visGroup.Location = new Point(1086, 310);
             visGroup.Name = "visGroup";
             visGroup.Size = new Size(160, 36);
             visGroup.TabIndex = 17;

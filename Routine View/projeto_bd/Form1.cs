@@ -43,7 +43,7 @@ namespace projeto_bd
             string password = PasswordBox.Text;
             const bool boolinha = true;
 
-            if (boolinha)
+            if (VerifyLogin(email,password))
             {
                 //MessageBox.Show("Login successful!");
                 int userid;
@@ -59,8 +59,8 @@ namespace projeto_bd
                         command.Parameters.AddWithValue("@pass", password);
                         command.Parameters.AddWithValue("@email", email);
 
-                        //userid = (int)command.ExecuteScalar();
-                        userid = 10;
+                        userid = (int)command.ExecuteScalar();
+                        //userid = 10;
                     }
                 }
 

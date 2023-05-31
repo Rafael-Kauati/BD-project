@@ -15,18 +15,24 @@ namespace Routine_View_Forms
     public partial class AddTaskToGroup : Form
     {
         private TaskGroup group = null;
-        private int userid = 0;
         private string taskGroup;
+        private int userid = 0;
+        public string CurrtaskGroup;
 
-        public AddTaskToGroup(string taskGroup)
+        public AddTaskToGroup(string taskGroup, TaskGroup tg)
         {
             InitializeComponent();
-            this.taskGroup = taskGroup; 
+            this.group = tg;
+            this.CurrtaskGroup = taskGroup;
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
             string taskTitle = textBox1.Text;
             string description = textBox2.Text;
             DateTime deadline = dateTimePicker1.Value;
@@ -46,58 +52,44 @@ namespace Routine_View_Forms
             else if (radioButton5.Checked)
                 importance = "5";
 
-            // Faça o que precisar com os valores obtidos das caixas de texto, do DateTimePicker e do radio input
-            // Por exemplo, você pode exibi-los em uma caixa de mensagem:
             string mensagem = $"Tarefa criada com sucesso\n\nTítulo: {taskTitle}\nDescrição: {description}\nPrazo: {formattedDeadline}\nImportância: {importance}";
             createTask(taskTitle,
                 description,
                 int.Parse(importance),
                 DateTime.Parse(formattedDeadline),
-                10);
+                10,
+                CurrtaskGroup);
+            group.getTaskFromGroup(CurrtaskGroup, "ToDo");
+            group.getTaskFromGroup(CurrtaskGroup, "Done");
 
-           
-            //MessageBox.Show(mensagem);
-
-            // Ou você pode passar os valores para outra função ou realizar outras operações desejadas.
         }
 
-
-        public static void createTask(string title, string description, int importance, DateTime deadline, int userID)
+        public static void createTask(string title, string description, int importance, DateTime deadline, int userID, string taskGroup)
         {
             string connectionString = "data source=.\\SQLEXPRESS;integrated security=true;initial catalog=Routine View";
-
-            //Primeiro : criar a task no domínio
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
+                string query = "INSERT INTO [Task] (Title, [Description], Importance, Deadline, [UserID]) VALUES (@title, @description, @Imp, @deadline, @userid)";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@title", title);
+                command.Parameters.AddWithValue("@description", description);
+                command.Parameters.AddWithValue("@Imp", importance);
+                command.Parameters.AddWithValue("@deadline", deadline);
+                command.Parameters.AddWithValue("@userid", userID);
+                command.ExecuteNonQuery();
 
-                string query = "INSERT INTO [Task] (Title, [Description], Importance, Deadline,   [UserID]) VALUES (@title, @description, @Imp, @deadline, @userid)";
-                SqlCommand commandd = new SqlCommand(query, connection);
-                commandd.Parameters.AddWithValue("@title", title);
-                commandd.Parameters.AddWithValue("@description", description);
-                commandd.Parameters.AddWithValue("@Imp", importance);
-                commandd.Parameters.AddWithValue("@deadline", deadline);
-                commandd.Parameters.AddWithValue("@userid", userID);
-                commandd.ExecuteNonQuery();
-
-                using ( commandd = new SqlCommand("addTaskToGroup", connection))
+                using (SqlCommand command2 = new SqlCommand("addTaskToGroup", connection))
                 {
-                    commandd.CommandType = CommandType.StoredProcedure;
-
-
-                    commandd.Parameters.AddWithValue("@TaskTitle", title);
-                    commandd.Parameters.AddWithValue("@TaskGroupTitle", taskGroup);
-
-                    commandd.ExecuteNonQuery();
+                    command2.CommandType = CommandType.StoredProcedure;
+                    command2.Parameters.AddWithValue("@TaskTitle", title);
+                    command2.Parameters.AddWithValue("@TaskGroupTitle", taskGroup);
+                    command2.ExecuteNonQuery();
                 }
 
-                MessageBox.Show("task added to group executed successfully.");
-
             }
-
-
         }
     }
 }
