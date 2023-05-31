@@ -25,3 +25,4 @@ C:\Users\kauat\OneDrive\Documentos\BD\Routine-View-Forms\Routine-View-Forms\bin\
 C:\Users\kauat\OneDrive\Documentos\BD\Routine-View-Forms\Routine-View-Forms\obj\Debug\net6.0-windows\Routine-View-Forms.csproj.CopyComplete
 C:\Users\kauat\OneDrive\Documentos\BD\Routine-View-Forms\Routine-View-Forms\obj\Debug\net6.0-windows\Routine_View_Forms.Form4.resources
 C:\Users\kauat\OneDrive\Documentos\BD\Routine-View-Forms\Routine-View-Forms\obj\Debug\net6.0-windows\WindowsFormsApp.Form2.resources
+C:\Users\kauat\OneDrive\Documentos\BD\Routine-View-Forms\Routine-View-Forms\obj\Debug\net6.0-windows\Routine_View_Forms.TaskGroup.resources

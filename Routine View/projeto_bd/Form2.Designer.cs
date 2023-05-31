@@ -28,6 +28,7 @@ namespace WindowsFormsApp
             taskGroup = new DataGridView();
             Tasks = new Label();
             label5 = new Label();
+            visGroup = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -186,9 +187,20 @@ namespace WindowsFormsApp
             label5.TabIndex = 16;
             label5.Text = "Tasks Groups";
             // 
+            // visGroup
+            // 
+            visGroup.Location = new Point(1134, 320);
+            visGroup.Name = "visGroup";
+            visGroup.Size = new Size(160, 36);
+            visGroup.TabIndex = 17;
+            visGroup.Text = "Visualize Group";
+            visGroup.UseVisualStyleBackColor = true;
+            visGroup.Click += visGroup_Click;
+            // 
             // Form2
             // 
             ClientSize = new Size(1823, 863);
+            Controls.Add(visGroup);
             Controls.Add(label5);
             Controls.Add(Tasks);
             Controls.Add(taskGroup);
@@ -230,5 +242,6 @@ namespace WindowsFormsApp
         private DataGridView taskGroup;
         private Label Tasks;
         private Label label5;
+        private Button visGroup;
     }
 }

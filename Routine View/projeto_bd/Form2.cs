@@ -5,9 +5,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Microsoft.VisualBasic.ApplicationServices;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-
-
-
+using Routine_View_Forms;
 
 namespace WindowsFormsApp
 {
@@ -17,12 +15,17 @@ namespace WindowsFormsApp
         static string connectionString = "data source=.\\SQLEXPRESS;integrated security=true;initial catalog=Routine View";
         private int userID = 0;
         private string[] taskGroupsNames;
+        List<TaskGroupInfo> dadosList = new List<TaskGroupInfo>();
+
+
         private Form3 form3;
+        private TaskGroup tg;
+
+        public TaskGroup TaskGroupInstance { get { return tg; } }
         public Form3 Form3Instance
         {
             get { return form3; }
         }
-
 
         public Form2(int userID)
         {
@@ -30,10 +33,7 @@ namespace WindowsFormsApp
             InitializeComponent();
             loadTaskGroups();
 
-            foreach (string title in taskGroupsNames)
-            {
-                getTaskFromGroup(title);
-            }
+            
 
             GetUserName(userID);
             GetUserScore(userID);
@@ -41,7 +41,6 @@ namespace WindowsFormsApp
             LoadDataFromDatabase("Doing");
             LoadDataFromDatabase("Done");
         }
-
 
 
         public void GetUserScore(int userID)
@@ -84,8 +83,6 @@ namespace WindowsFormsApp
 
         }
 
-
-
         public void getTaskFromGroup(string groupTitle)
         {
             DataGridViewRow row = new DataGridViewRow();
@@ -112,6 +109,27 @@ namespace WindowsFormsApp
                 taskGroup.DataSource = dataTable;
             }
         }
+        private void visGroup_Click(object sender, EventArgs e)
+         {
+            if(taskGroup.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = taskGroup.SelectedRows[0];
+                //MessageBox.Show(selectedRow.Cells["Title"].Value.ToString());
+
+                if (tg == null || tg.IsDisposed)
+                {
+
+                    tg = new TaskGroup(selectedRow.Cells["Title"].Value.ToString());
+                    tg.Show();
+                }
+                else
+                {
+                    tg.WindowState = FormWindowState.Normal;
+                    tg.Focus();
+                }
+
+            }
+        }
 
         public void loadTaskGroups()
         {
@@ -132,18 +150,23 @@ namespace WindowsFormsApp
                         {
 
                             // Obtém os valores das colunas "Title", "Code" e "Assoc_code" da linha atual
-                            string title = reader.GetString(0);
-                            int code = reader.GetInt32(1);
-                            int assocCode = reader.GetInt32(2);
+                            TaskGroupInfo group = new TaskGroupInfo();
+                            group.Title = reader.GetString(0);
+                            group.Code = reader.GetInt32(1);
+                            group.AssocCode = reader.GetInt32(2);
+                            dadosList.Add(group);
 
-                            taskGroupsNames = (string[])taskGroupsNames.Append(title);
+                            //taskGroupsNames = (string[])taskGroupsNames.Append(title);
 
                             // Faça o que desejar com os valores obtidos
                             //MessageBox.Show($"Title: {title}, Code: {code}, Assoc_code: {assocCode}");
                         }
                     }
+
                 }
             }
+
+            taskGroup.DataSource = dadosList;
         }
 
 
@@ -176,11 +199,6 @@ namespace WindowsFormsApp
             }
         }
 
-
-
-
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (form3 == null || form3.IsDisposed)
@@ -195,7 +213,7 @@ namespace WindowsFormsApp
                 form3.Focus();
             }
         }
-
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -354,6 +372,8 @@ namespace WindowsFormsApp
         {
 
         }
+
+       
     }
 
 }
