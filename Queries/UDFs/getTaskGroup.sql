@@ -5,7 +5,7 @@ drop function if exists getTaskGroup
 go
 
 create function getTaskGroup
-	(@TaskGroupTitle varchar(50))
+	(@TaskGroupTitle varchar(50), @state varchar(10))
 RETURNS TABLE
 AS
 RETURN(
@@ -24,6 +24,6 @@ RETURN(
 		[Task_Group] g
 		join [Task] t on g.Code =  t.TaskGroupCode
 	where
-		g.Title = @TaskGroupTitle
+		g.Title = @TaskGroupTitle AND t.[State] = @state
 );
 go

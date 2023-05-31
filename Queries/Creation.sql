@@ -32,8 +32,6 @@ create unique clustered index stackID_index on [Stack](StackID);
 
 alter index stackID_index on [Stack] rebuild with (fillfactor = 70) ;
 
---Vamos mudar o domínio do projetos
---Não vamos mais trabalhar com especialização
 CREATE TABLE Task_Group_Assoc (
     Assoc_Code INT IDENTITY (1,1) primary key,
     CriteriaType VARCHAR(20) CHECK (CriteriaType IN ('Importance', 'Deadline', 'Category'))
