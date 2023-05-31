@@ -17,7 +17,7 @@ BEGIN
         WHERE Title = @taskname;
 
         UPDATE [Task]
-        SET StackID = 3
+        SET StackID = 3, Task.Conclusion = GETDATE()
         WHERE Title = @taskname;
 
 		update [Stack]

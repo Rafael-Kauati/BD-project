@@ -1,8 +1,8 @@
-use [Routine View]
-go
+USE [Routine View]
+GO
 
-drop procedure if exists  addTaskToGroup
-go
+DROP PROCEDURE IF EXISTS addTaskToGroup
+GO
 
 CREATE PROCEDURE addTaskToGroup
     @TaskGroupTitle varchar(50),
@@ -11,38 +11,41 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-	--Update the task with the group code
+    BEGIN TRY
+        BEGIN TRANSACTION;
 
-    DECLARE @TaskGroupCode int;
+        -- Update the task with the group code
+        DECLARE @TaskGroupCode int;
 
-    SELECT @TaskGroupCode = Code
-    FROM Task_Group
-    WHERE Title = @TaskGroupTitle;
+        SELECT @TaskGroupCode = Code
+        FROM Task_Group
+        WHERE Title = @TaskGroupTitle;
 
-	UPDATE Task_Group
-    SET Curr_undone_task_num = Curr_undone_task_num + 1
-    WHERE Title = @TaskGroupTitle;
+        UPDATE Task_Group
+        SET Curr_undone_task_num = Curr_undone_task_num + 1
+        WHERE Title = @TaskGroupTitle;
 
-    UPDATE Task
-    SET TaskGroupCode = @TaskGroupCode, Task.[State] = 'ToDo'
-    WHERE Title = @TaskTitle;
+        UPDATE Task
+        SET TaskGroupCode = @TaskGroupCode, Task.[State] = 'ToDo'
+        WHERE Title = @TaskTitle;
 
+        -- Update the overall priority of the group task
+        DECLARE @overallPrior int;
 
+        SELECT @overallPrior = AVG([Priority])
+        FROM [Task_Group] g
+        JOIN [Task] t ON g.Code = t.TaskGroupCode
+        WHERE g.Title = @TaskGroupTitle;
 
+        UPDATE Task_Group
+        SET Task_Group.OveralPriority = @overallPrior
+        WHERE Task_Group.Title = @TaskGroupTitle;
 
-	--Update the overall priority of the group task
-	DECLARE @overrallPrior int;
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
 
-	select 
-		 @overrallPrior = avg([Priority])
-	from 
-		[Task_Group] g
-		join [Task] t on g.Code =  t.TaskGroupCode
-	where
-		g.Title = @TaskGroupTitle
-
-	update Task_Group
-	set Task_Group.OveralPriority = @overrallPrior
-	where Task_Group.Title = @TaskGroupTitle;
-
+    END CATCH;
 END

@@ -9,9 +9,11 @@ create function getAllTaskGroups
 RETURNS TABLE
 AS
 RETURN(
-	select g.[Title], g.Code, g.Assoc_code
-	from [Task_Group] g
-	--join [Task] t on g.Code = t.TaskGroupCode 
+	select distinct g.Code, g.[Title], g.[isFinished],a.CriteriaType
+	from  [Task_Group] g 
+	join [Task_Group_Assoc] a on g.Assoc_code = a.Assoc_Code
+	join [Task] t on g.Code = t.TaskGroupCode 
+	where t.UserID = @userid
 	--where t.UserID = @userid
 );
 go

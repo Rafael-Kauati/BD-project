@@ -4,7 +4,7 @@ drop function if exists GetAllTasksInStack
 go
 
 CREATE FUNCTION GetAllTasksInStack
-    (@stackName VARCHAR(40))
+    (@stackName VARCHAR(40), @userid int)
 RETURNS TABLE
 AS
 RETURN
@@ -26,7 +26,7 @@ RETURN
         JOIN [Task] t ON s.StackID = t.StackID
     WHERE
         s.[Name] = @stackName 
-        AND t.TaskGroupCode IS NULL
+        AND t.TaskGroupCode IS NULL AND t.UserID = @userid
 );
 GO
 /*

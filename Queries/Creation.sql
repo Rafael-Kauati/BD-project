@@ -44,6 +44,7 @@ create table Task_Group(
 	[StackID] int foreign key references [Stack] (StackID),
     [Title] varchar(50) not null,
     [Description] varchar(100) ,
+	[isFinished] varchar(5) default 'no',
     [Num_max_task] int default 10, 
     [Curr_undone_task_num] int not null default 0,
     --[Curr_toDo_task_num] substituir esta coluna por um procedure
