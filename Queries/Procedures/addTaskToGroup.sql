@@ -19,8 +19,12 @@ BEGIN
     FROM Task_Group
     WHERE Title = @TaskGroupTitle;
 
+	UPDATE Task_Group
+    SET Curr_undone_task_num = Curr_undone_task_num + 1
+    WHERE Title = @TaskGroupTitle;
+
     UPDATE Task
-    SET TaskGroupCode = @TaskGroupCode
+    SET TaskGroupCode = @TaskGroupCode, Task.[State] = 'ToDo'
     WHERE Title = @TaskTitle;
 
 

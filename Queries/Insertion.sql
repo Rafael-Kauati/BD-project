@@ -20,7 +20,7 @@ INSERT INTO [Task] (Title, [Description], Importance, Deadline,   [UserID])
 VALUES ('Enviar relatório semanal', 'Preparar e enviar relatório de desempenho semanal da equipe', 2, '2023-06-19 09:00:00',   10),
 
 ('Atualizar planilha de vendas', 'Inserir os dados de vendas atualizados na planilha de acompanhamento', 4, '2023-07-20 14:30:00',   10),
- ('Realizar reunião de equipe', 'Agendar e conduzir uma reunião com a equipe para alinhar as metas do mês', 3, '2023-05-29 11:00:00',  10),
+ ('Realizar reunião de equipe', 'Agendar e conduzir uma reunião com a equipe para alinhar as metas do mês', 3, '2023-06-29 11:00:00',  10),
 
  ('Enviar convites para evento', 'Elaborar e enviar convites para os participantes do evento corporativo', 5, '2023-09-22 16:30:00',   10);
 
@@ -49,7 +49,8 @@ select * from [User];
 select * from [Stack]; 
 select * from [Task_Group]; 
 
-select * from getTaskGroup('Tarefas importantes');
+SELECT * FROM getTaskGroup('Tarefas importantes', 'ToDo');
+--select * from getTaskGroup('Tarefas importantes');
 
  /*
 exec startTask 'Realizar reunião de equipe';
