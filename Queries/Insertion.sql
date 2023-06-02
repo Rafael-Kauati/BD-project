@@ -1,6 +1,17 @@
 use [Routine View]
 go
 
+/*
+delete from [Reward] where 1=1;
+delete from [Task_Group_Assoc] where 1=1;
+delete from [Task_Group] where 1=1;
+delete from [TaskAchievement] where 1=1;
+delete from [Achieviement] where 1=1;
+delete from [Task] where 1=1;
+delete from [Stack]where 1=1;
+delete from [User] where 1=1;*/
+--delete from where 1=1;
+
 insert into 
 	[User] 
 	( [Name], [Email], [Password],[DoB]) 
@@ -9,6 +20,15 @@ insert into
 	('Jane Smith', 'janesmith@example.com', 'anotherpassword', '1995-05-05'),
 	('Bob Johnson', 'bobjohnson@example.com', 'supersecurepassword', '1985-12-31');;
 go
+
+-- Excluir usuário Danilo
+
+
+EXECUTE addUserAndLogin;
+
+
+--SELECT 'username', host FROM mysql.user WHERE db = 'Routine View';
+
 
 insert into
 	[Stack]
@@ -52,6 +72,7 @@ select * from [Task];
 select * from [User]; 
 select * from [Stack]; 
 select * from [Task_Group]; 
+select * from [Reward]; 
 
 SELECT * FROM getTaskGroup('Tarefas importantes', 'ToDo');
 --select * from getTaskGroup('Tarefas importantes');
