@@ -12,13 +12,12 @@ delete from [Stack]where 1=1;
 delete from [User] where 1=1;*/
 --delete from where 1=1;
 
-insert into 
-	[User] 
-	( [Name], [Email], [Password],[DoB]) 
-	values ( 'Danilo', 'danilo@ua.pt', 'password' ,'2011-01-01'),
-	( 'Pedro Branches', 'PB@ua.pt', 'ManjaroTrash', '2019-01-01'),
-	('Jane Smith', 'janesmith@example.com', 'anotherpassword', '1995-05-05'),
-	('Bob Johnson', 'bobjohnson@example.com', 'supersecurepassword', '1985-12-31');;
+INSERT INTO [User] ([Name], [Email], [Password], [DoB]) 
+VALUES 
+	('Danilo', 'danilo@ua.pt', CONVERT(VARBINARY(8000), 'password'), '2011-01-01'),
+	('Pedro Branches', 'PB@ua.pt', CONVERT(VARBINARY(8000), 'ManjaroTrash'), '2019-01-01'),
+	('Jane Smith', 'janesmith@example.com', CONVERT(VARBINARY(8000), 'anotherpassword'), '1995-05-05'),
+	('Bob Johnson', 'bobjohnson@example.com', CONVERT(VARBINARY(8000), 'supersecurepassword'), '1985-12-31');
 go
 
 -- Excluir usuário Danilo
@@ -67,6 +66,9 @@ EXECUTE addTaskToGroup
 
 EXECUTE addTaskToGroup 
 @TaskGroupTitle =  'Emitir folha de pagamento', @TaskTitle = 'Realizar reunião de equipe';
+
+
+
 
 select * from [Task]; 
 select * from [User]; 

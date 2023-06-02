@@ -14,7 +14,7 @@ create table [User] (
 	 ID	int  identity(10,5),
 	[Name]	varchar(256) NOT NULL,
 	[Email] varchar(40) NOT NULL,
-	[Password] char(40) NOT NULL,
+	[Password] varbinary(8000) NOT NULL,
 	[Score] int default 0,
 	[DoB] date NOT NULL
 )

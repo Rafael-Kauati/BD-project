@@ -48,39 +48,11 @@ BEGIN
 END;
 GO
 
-DROP PROCEDURE IF EXISTS checkLogIn;
-GO
 
-CREATE PROCEDURE checkLogIn
-(
-    @email varchar(40),
-    @password varchar(40),
-    @confirmation int OUTPUT
-)
-AS
-BEGIN
-    DECLARE @userID int;
-	DECLARE @username varchar(50);
 
-    SELECT @userID = ID, @username = [User].[Name] FROM [User]
-    WHERE [User].Email = @email
-    AND [User].[Password] = @password;
 
-    IF @userID IS NOT NULL
-    BEGIN
-        -- Autenticação bem-sucedida
-        SET @confirmation = 1;
-        
-        -- Faça login formalmente na base de dados
-        EXECUTE AS LOGIN = @username;
-    END
-    ELSE
-    BEGIN
-        -- Falha na autenticação
-        SET @confirmation = 0;
-    END;
-END;
-GO
+
+
 
 
 DROP PROCEDURE IF EXISTS concludeTaskOfTheGroup;
