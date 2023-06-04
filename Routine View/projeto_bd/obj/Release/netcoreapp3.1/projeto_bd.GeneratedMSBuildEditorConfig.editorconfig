@@ -1,3 +1,9 @@
 is_global = true
+build_property.ApplicationManifest = 
+build_property.StartupObject = 
+build_property.ApplicationDefaultFont = 
+build_property.ApplicationHighDpiMode = 
+build_property.ApplicationUseCompatibleTextRendering = 
+build_property.ApplicationVisualStyles = 
 build_property.RootNamespace = projeto_bd
-build_property.ProjectDir = C:\Users\migue\source\repos\projeto_bd\
+build_property.ProjectDir = C:\Users\kauat\OneDrive\Documentos\BD\bd-curr\BD-project\Routine View\projeto_bd\

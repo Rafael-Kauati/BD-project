@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kauat\\OneDrive\\Documentos\\BD\\Routine-View-Forms\\Routine-View-Forms\\Routine-View-Forms.csproj": {}
+    "C:\\Users\\kauat\\OneDrive\\Documentos\\BD\\bd-curr\\BD-project\\Routine View\\projeto_bd\\Routine-View-Forms.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kauat\\OneDrive\\Documentos\\BD\\Routine-View-Forms\\Routine-View-Forms\\Routine-View-Forms.csproj": {
+    "C:\\Users\\kauat\\OneDrive\\Documentos\\BD\\bd-curr\\BD-project\\Routine View\\projeto_bd\\Routine-View-Forms.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kauat\\OneDrive\\Documentos\\BD\\Routine-View-Forms\\Routine-View-Forms\\Routine-View-Forms.csproj",
+        "projectUniqueName": "C:\\Users\\kauat\\OneDrive\\Documentos\\BD\\bd-curr\\BD-project\\Routine View\\projeto_bd\\Routine-View-Forms.csproj",
         "projectName": "Routine-View-Forms",
-        "projectPath": "C:\\Users\\kauat\\OneDrive\\Documentos\\BD\\Routine-View-Forms\\Routine-View-Forms\\Routine-View-Forms.csproj",
+        "projectPath": "C:\\Users\\kauat\\OneDrive\\Documentos\\BD\\bd-curr\\BD-project\\Routine View\\projeto_bd\\Routine-View-Forms.csproj",
         "packagesPath": "C:\\Users\\kauat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kauat\\OneDrive\\Documentos\\BD\\Routine-View-Forms\\Routine-View-Forms\\obj\\",
+        "outputPath": "C:\\Users\\kauat\\OneDrive\\Documentos\\BD\\bd-curr\\BD-project\\Routine View\\projeto_bd\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kauat\\AppData\\Roaming\\NuGet\\NuGet.Config",

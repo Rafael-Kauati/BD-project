@@ -1,5 +1,11 @@
+use [Routine View]
+go
+
+drop trigger if exists encryptPassword
+go
+
 create trigger encryptPassword on [User]
-after insert, update
+after insert
 as
 begin
 	DECLARE @UserID INT

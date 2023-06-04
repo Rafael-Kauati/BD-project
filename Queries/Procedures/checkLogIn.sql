@@ -12,27 +12,26 @@ CREATE PROCEDURE checkLogIn
 )
 AS
 BEGIN
-    DECLARE @DecryptedPassword varchar(40);
+    DECLARE @DecryptedPassword varbinary(8000);
     DECLARE @userid int;
 
     -- Decrypt the password based on the provided email
-    SELECT @DecryptedPassword = CONVERT(VARCHAR(40), DecryptByPassPhrase('ThePassphrase', [Password]))
+    SELECT @DecryptedPassword = DecryptByPassPhrase('ThePassphrase', [Password])
     FROM [User]
-    WHERE [Email] = @email
+    WHERE [Email] = @email;
 
-    PRINT 'password decrypt ' + @DecryptedPassword
-
-    IF @DecryptedPassword = @password
+    IF CONVERT(varchar(40), @DecryptedPassword) = @password
     BEGIN
         SELECT @userid = [User].ID
         FROM [User]
-        WHERE [Email] = @email
+        WHERE [Email] = @email;
 
-        SET @confirmation = @userid
+        SET @confirmation = @userid;
     END
     ELSE
     BEGIN
-        SET @confirmation = 0
+        SET @confirmation = 0;
     END
 END;
 GO
+

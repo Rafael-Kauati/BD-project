@@ -39,54 +39,36 @@ namespace projeto_bd
 
         private void LoginBtn_click(object sender, EventArgs e)
         {
+            //string email = EmailBox.Text;
             string email = EmailBox.Text;
             string password = PasswordBox.Text;
             const bool boolinha = true;
+             int confirm = VerifyLogin(email, password);
 
-            if (VerifyLogin(email,password))
+
+            //MessageBox.Show(VerifyLogin(email, password).ToString());
+
+
+
+            if (confirm != 0)
             {
-                //MessageBox.Show("Login successful!");
-                int userid;
-                string connectionString = "data source=.\\SQLEXPRESS;integrated security=true;initial catalog=Routine View";
-                string query = "SELECT ID FROM [User] WHERE Password = @pass AND Email = @email";
 
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@pass", password);
-                        command.Parameters.AddWithValue("@email", email);
-
-                        userid = (int)command.ExecuteScalar();
-                        //userid = 10;
-                    }
-                }
-
-                // Agora você tem o ID armazenado na variável 'userid' e pode utilizá-lo conforme necessário.
-
-
-
-                // Abrir o Form2
                 if (form2 == null || form2.IsDisposed)
-                {
-                    this.Hide();
-                    form2 = new Form2(userid);
-                    form2.Show();
+                         {
+                                    this.Hide();
+                                    form2 = new Form2(confirm);
+                                    form2.Show();
+                                }
+                                else
+                                {
+                                    form2.BringToFront();
+                                }
                 }
-                else
-                {
-                    form2.BringToFront();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Invalid email or password!");
-            }
+            
+               
         }
 
-        private bool VerifyLogin(string email, string password)
+        private int VerifyLogin(string email, string password)
         {
             int confirmation = 0;
             string query = "checkLogIn"; // Nome do procedimento armazenado
@@ -109,8 +91,9 @@ namespace projeto_bd
                 confirmation = (int)confirmationParam.Value;
 
                 // Retorna true se o login for verificado com sucesso (confirmation = 1)
-                return confirmation == 1;
             }
+            return confirmation ;
+
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {

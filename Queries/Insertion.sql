@@ -23,7 +23,7 @@ go
 -- Excluir usuário Danilo
 
 
-EXECUTE addUserAndLogin;
+--EXECUTE addUserAndLogin;
 
 
 --SELECT 'username', host FROM mysql.user WHERE db = 'Routine View';

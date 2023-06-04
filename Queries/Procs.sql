@@ -48,13 +48,6 @@ BEGIN
 END;
 GO
 
-
-
-
-
-
-
-
 DROP PROCEDURE IF EXISTS concludeTaskOfTheGroup;
 GO
 
