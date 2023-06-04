@@ -42,8 +42,8 @@ namespace projeto_bd
             //string email = EmailBox.Text;
             string email = EmailBox.Text;
             string password = PasswordBox.Text;
-            const bool boolinha = true;
-             int confirm = VerifyLogin(email, password);
+            //const bool boolinha = true;
+            int confirm = VerifyLogin(email, password);
 
 
             //MessageBox.Show(VerifyLogin(email, password).ToString());
@@ -54,18 +54,18 @@ namespace projeto_bd
             {
 
                 if (form2 == null || form2.IsDisposed)
-                         {
-                                    this.Hide();
-                                    form2 = new Form2(confirm);
-                                    form2.Show();
-                                }
-                                else
-                                {
-                                    form2.BringToFront();
-                                }
+                {
+                    this.Hide();
+                    form2 = new Form2(confirm);
+                    form2.Show();
                 }
-            
-               
+                else
+                {
+                    form2.BringToFront();
+                }
+            }
+
+
         }
 
         private int VerifyLogin(string email, string password)
@@ -92,12 +92,17 @@ namespace projeto_bd
 
                 // Retorna true se o login for verificado com sucesso (confirmation = 1)
             }
-            return confirmation ;
+            return confirmation;
 
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             cn.Close();
+        }
+
+        private void PasswordBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -43,15 +43,17 @@ namespace projeto_bd
             EmailBox.Size = new Size(126, 23);
             EmailBox.TabIndex = 2;
             EmailBox.Text = "Email";
-
             // 
             // PasswordBox
             // 
             PasswordBox.Location = new Point(433, 197);
             PasswordBox.Name = "PasswordBox";
+            PasswordBox.PasswordChar = '*';
+            PasswordBox.PlaceholderText = "Password";
             PasswordBox.Size = new Size(126, 23);
             PasswordBox.TabIndex = 3;
             PasswordBox.Text = "Password";
+            PasswordBox.TextChanged += PasswordBox_TextChanged;
             // 
             // LoginBtn
             // 

@@ -15,10 +15,12 @@ namespace WindowsFormsApp
         static string connectionString = "data source=.\\SQLEXPRESS;integrated security=true;initial catalog=Routine View";
         private int userID = 0;
         private string[] taskGroupsNames;
+        private string taskSelected;
         List<TaskGroupInfo> dadosList = new List<TaskGroupInfo>();
 
 
         private Form3 form3;
+        private Form4 form4;
         private TaskGroup tg;
 
         public TaskGroup TaskGroupInstance { get { return tg; } }
@@ -27,14 +29,16 @@ namespace WindowsFormsApp
             get { return form3; }
         }
 
+        public Form4 Form4Instance
+        {
+            get { return form4; }
+        }
+
         public Form2(int userID)
         {
             this.userID = userID;
             InitializeComponent();
             loadTaskGroups();
-
-
-
             GetUserName(userID);
             GetUserScore(userID);
             LoadDataFromDatabase("To do");
@@ -201,6 +205,59 @@ namespace WindowsFormsApp
             }
         }
 
+        private void editTask_Click(object sender, EventArgs e)
+        {
+            if (form4 == null || form4.IsDisposed)
+            {
+
+                form4 = new Form4(this.userID , this.taskSelected, this);
+                form4.Show();
+            }
+            else
+            {
+                form4.WindowState = FormWindowState.Normal;
+                form4.Focus();
+            }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
+                editTask.Visible = true;
+
+                this.taskSelected = row.Cells[1].Value.ToString();
+                MessageBox.Show(taskSelected.ToString());
+
+            }
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView3.Rows[e.RowIndex];
+                editTask.Visible = true;
+
+                this.taskSelected = row.Cells[1].Value.ToString();
+
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                editTask.Visible = true;
+
+                this.taskSelected = row.Cells[1].Value.ToString();
+                MessageBox.Show(taskSelected.ToString());
+
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (form3 == null || form3.IsDisposed)
@@ -347,15 +404,7 @@ namespace WindowsFormsApp
 
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
-
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         private void Form2_Load(object sender, EventArgs e)
         {
 

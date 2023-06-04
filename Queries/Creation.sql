@@ -3,6 +3,12 @@ go
 
 --DDL : 
 
+/*ALTER DATABASE [Routine View]
+SET CONTAINMENT = PARTIAL;*/
+
+
+
+
 SELECT
     CONCAT('DROP ',ROUTINE_TYPE,' `',ROUTINE_SCHEMA,'`.`',ROUTINE_NAME,'`;') as stmt
 FROM information_schema.ROUTINES;

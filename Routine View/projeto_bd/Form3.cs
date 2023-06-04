@@ -57,8 +57,8 @@ namespace projeto_bd
             createTask(taskTitle, 
                 description, 
                 int.Parse(importance),
-                DateTime.Parse(formattedDeadline), 
-                10);
+                DateTime.Parse(formattedDeadline),
+                usrid);
 
             form2.LoadDataFromDatabase("To do");
             form2.LoadDataFromDatabase("Doing");

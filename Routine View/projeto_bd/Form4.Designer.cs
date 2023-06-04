@@ -131,6 +131,7 @@
             button1.TabIndex = 19;
             button1.Text = "Create Task";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // textBox2
             // 

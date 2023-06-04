@@ -22,10 +22,11 @@ BEGIN
 
     IF CONVERT(varchar(40), @DecryptedPassword) = @password
     BEGIN
-        SELECT @userid = [User].ID
+		--DECLARE @username varchar(50);
+        SELECT @userid = [User].ID--, @username = [User].[Name]
         FROM [User]
         WHERE [Email] = @email;
-
+		--EXEC sp_addlogin @username, @DecryptedPassword, [Routine View];
         SET @confirmation = @userid;
     END
     ELSE
@@ -34,4 +35,3 @@ BEGIN
     END
 END;
 GO
-

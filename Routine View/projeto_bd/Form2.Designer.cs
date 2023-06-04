@@ -29,6 +29,7 @@ namespace WindowsFormsApp
             Tasks = new Label();
             label5 = new Label();
             visGroup = new Button();
+            editTask = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -43,6 +44,7 @@ namespace WindowsFormsApp
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(579, 184);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // dataGridView2
             // 
@@ -197,9 +199,21 @@ namespace WindowsFormsApp
             visGroup.UseVisualStyleBackColor = true;
             visGroup.Click += visGroup_Click;
             // 
+            // editTask
+            // 
+            editTask.Location = new Point(523, 24);
+            editTask.Name = "editTask";
+            editTask.Size = new Size(203, 38);
+            editTask.TabIndex = 18;
+            editTask.Text = "Edit task";
+            editTask.UseVisualStyleBackColor = true;
+            editTask.Visible = false;
+            editTask.Click += editTask_Click;
+            // 
             // Form2
             // 
             ClientSize = new Size(1823, 863);
+            Controls.Add(editTask);
             Controls.Add(visGroup);
             Controls.Add(label5);
             Controls.Add(Tasks);
@@ -243,5 +257,6 @@ namespace WindowsFormsApp
         private Label Tasks;
         private Label label5;
         private Button visGroup;
+        private Button editTask;
     }
 }
