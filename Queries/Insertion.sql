@@ -1,16 +1,6 @@
 use [Routine View]
 go
 
-/*
-delete from [Reward] where 1=1;
-delete from [Task_Group_Assoc] where 1=1;
-delete from [Task_Group] where 1=1;
-delete from [TaskAchievement] where 1=1;
-delete from [Achieviement] where 1=1;
-delete from [Task] where 1=1;
-delete from [Stack]where 1=1;
-delete from [User] where 1=1;*/
---delete from where 1=1;
 
 INSERT INTO [User] ([Name], [Email], [Password], [DoB]) 
 VALUES 
@@ -23,17 +13,12 @@ go
 -- Excluir usuário Danilo
 
 
-EXECUTE addUserAndLogin;
+--EXECUTE addUserAndLogin;
 
+INSERT INTO [Stack] ([Name]) VALUES ('To Do');
+INSERT INTO [Stack] ([Name]) VALUES ('Doing');
+INSERT INTO [Stack] ([Name]) VALUES ('Done');
 
---SELECT 'username', host FROM mysql.user WHERE db = 'Routine View';
-
-
-insert into
-	[Stack]
-	( [Name]) values
-	( 'To Do'), ( 'Doing'),( 'Done');
-go
 
 INSERT INTO [Task] (Title, [Description], Importance, Deadline,   [UserID])
 VALUES ('Enviar relatório semanal', 'Preparar e enviar relatório de desempenho semanal da equipe', 2, '2023-06-19 09:00:00',   10),
@@ -67,9 +52,6 @@ EXECUTE addTaskToGroup
 EXECUTE addTaskToGroup 
 @TaskGroupTitle =  'Emitir folha de pagamento', @TaskTitle = 'Realizar reunião de equipe';
 
-
-
-
 select * from [Task]; 
 select * from [User]; 
 select * from [Stack]; 
@@ -77,6 +59,7 @@ select * from [Task_Group];
 select * from [Reward]; 
 
 SELECT * FROM getTaskGroup('Tarefas importantes', 'ToDo');
+
 --select * from getTaskGroup('Tarefas importantes');
 
  /*

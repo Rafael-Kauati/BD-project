@@ -47,14 +47,7 @@ BEGIN
     END CATCH;
 END;
 GO
-
-
-
-
-
-
-
-
+------------------------------------------------
 DROP PROCEDURE IF EXISTS concludeTaskOfTheGroup;
 GO
 
@@ -90,6 +83,7 @@ BEGIN
 END;
 GO
 
+-----------------------------------------------
 DROP PROCEDURE IF EXISTS concludeTask;
 GO
 
@@ -133,6 +127,7 @@ BEGIN
     END CATCH;
 END;
 GO
+-----------------------------------------------
 
 DROP PROCEDURE IF EXISTS startTask;
 GO
@@ -165,7 +160,7 @@ BEGIN
     END CATCH;
 END;
 GO
-
+-----------------------------------------------
 
 DROP PROCEDURE IF EXISTS finishGroupTask;
 GO

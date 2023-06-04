@@ -20,13 +20,16 @@ BEGIN
     FROM [User]
     WHERE [Email] = @email
 
-    PRINT 'password decrypt ' + @DecryptedPassword
+    PRINT 'password decrypt ' + @DecryptedPassword;
 
     IF @DecryptedPassword = @password
     BEGIN
-        SELECT @userid = [User].ID
+		DECLARE @username varchar(60);
+        SELECT @userid = [User].ID, @username=[User].[Name]
         FROM [User]
         WHERE [Email] = @email
+
+		--EXECUTE AS LOGIN = @username;
 
         SET @confirmation = @userid
     END
@@ -36,3 +39,4 @@ BEGIN
     END
 END;
 GO
+
