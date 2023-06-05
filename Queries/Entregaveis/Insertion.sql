@@ -6,8 +6,6 @@ INSERT INTO [User] ([Name], [Email], [Password], [DoB])
 VALUES 
 	('Daniel', 'daniel@ua.pt', CONVERT(VARBINARY(8000), 'password'), '2011-01-01'),
 	('Pedro Ramos', 'PR@ua.pt', CONVERT(VARBINARY(8000), 'anotherpassword'), '2019-01-01');
-	--('Jane Smith', 'janesmith@example.com', CONVERT(VARBINARY(8000), 'anotherpassword'), '1995-05-05'),
-	--('Bob Johnson', 'bobjohnson@example.com', CONVERT(VARBINARY(8000), 'supersecurepassword'), '1985-12-31');
 go
 
 INSERT INTO [Stack] ([Name]) VALUES ('To Do');
