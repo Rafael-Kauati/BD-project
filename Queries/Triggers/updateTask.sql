@@ -11,15 +11,16 @@ BEGIN
     DECLARE @Title VARCHAR(100),
             @Description VARCHAR(100),
             @Importance INT,
+            @StackID INT,
             @Deadline DATETIME;
 
     DECLARE cursorTasks CURSOR FOR
-        SELECT Title, [Description], Importance, Deadline
+        SELECT Title, [Description], Importance, StackID ,Deadline
         FROM inserted;
 
     OPEN cursorTasks;
 
-    FETCH NEXT FROM cursorTasks INTO @Title, @Description, @Importance, @Deadline;
+    FETCH NEXT FROM cursorTasks INTO @Title, @Description, @Importance, @StackID ,@Deadline;
 
     WHILE @@FETCH_STATUS = 0
     BEGIN
@@ -27,11 +28,12 @@ BEGIN
         SET t.Title = ISNULL(i.Title, t.Title),
             t.[Description] = ISNULL(i.[Description], t.[Description]),
             t.Importance = ISNULL(i.Importance, t.Importance),
+            t.StackID = ISNULL(i.StackID, t.StackID),
             t.Deadline = ISNULL(i.Deadline, t.Deadline)
         FROM [Task] t
         INNER JOIN inserted i ON t.[Code] = i.[Code];
 
-        FETCH NEXT FROM cursorTasks INTO @Title, @Description, @Importance, @Deadline;
+	    FETCH NEXT FROM cursorTasks INTO @Title, @Description, @Importance, @StackID ,@Deadline;
     END;
 
     CLOSE cursorTasks;

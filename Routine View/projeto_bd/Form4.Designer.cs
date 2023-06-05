@@ -58,6 +58,7 @@
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(300, 23);
             dateTimePicker1.TabIndex = 26;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // radioButton5
             // 
@@ -139,6 +140,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(200, 23);
             textBox2.TabIndex = 18;
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // textBox1
             // 

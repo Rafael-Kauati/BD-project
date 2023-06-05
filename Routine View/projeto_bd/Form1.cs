@@ -40,8 +40,11 @@ namespace projeto_bd
         private void LoginBtn_click(object sender, EventArgs e)
         {
             //string email = EmailBox.Text;
-            string email = EmailBox.Text;
-            string password = PasswordBox.Text;
+            //string password = PasswordBox.Text;
+            string password = "Password";
+            string email = "danilo@ua.pt";
+
+
             //const bool boolinha = true;
             int confirm = VerifyLogin(email, password);
 
@@ -63,8 +66,11 @@ namespace projeto_bd
                 {
                     form2.BringToFront();
                 }
+
+                return;
             }
 
+            MessageBox.Show("Email or Password incorrect");
 
         }
 

@@ -1,3 +1,6 @@
+use [Routine View]
+go
+
 drop procedure if exists finishGroupTask
 go
 

@@ -42,12 +42,12 @@ EXECUTE addTaskToGroup
 EXECUTE addTaskToGroup 
 @TaskGroupTitle =  'Tarefas importantes', @TaskTitle = 'Atualizar planilha de vendas';
 
-
-
 EXECUTE addTaskToGroup 
 @TaskGroupTitle =  'Emitir folha de pagamento', @TaskTitle = 'Realizar reunião de equipe';
 
-select * from [Task]; 
+EXECUTE startTask @taskname = 'Atualizar planilha de vendas';
+
+select Code ,Title, StackID from [Task]; 
 select * from [User]; 
 select * from [Stack]; 
 select * from [Task_Group]; 

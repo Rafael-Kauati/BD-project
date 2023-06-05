@@ -26,7 +26,8 @@ BEGIN
         SELECT @userid = [User].ID--, @username = [User].[Name]
         FROM [User]
         WHERE [Email] = @email;
-		--EXEC sp_addlogin @username, @DecryptedPassword, [Routine View];
+		--EXEC sp_addlogin @username, @DecryptedPassword, [Routine View];
+
         SET @confirmation = @userid;
     END
     ELSE

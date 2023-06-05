@@ -25,8 +25,8 @@ begin
 
 	WHILE @@FETCH_STATUS = 0
 	BEGIN
-		INSERT INTO [Task] (Title, [Description], Importance, Deadline, [UserID])
-		VALUES (@Title, @Description, @Importance, @Deadline, @UserID);
+		INSERT INTO [Task] (Title, [Description], Importance, Deadline, StackID ,[UserID])
+		VALUES (@Title, @Description, @Importance, @Deadline,1 ,@UserID);
 
 		UPDATE [Stack]
 		SET CurrMaxTasks = CurrMaxTasks + 1

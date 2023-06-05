@@ -12,6 +12,11 @@ BEGIN
     SET NOCOUNT ON;
 
     BEGIN TRY
+        DECLARE @ErrorUpdates TABLE (
+            TaskTitle varchar(100),
+            TaskGroupTitle varchar(50)
+        );
+
         BEGIN TRANSACTION;
 
         -- Update the task with the group code
@@ -25,9 +30,21 @@ BEGIN
         SET Curr_undone_task_num = Curr_undone_task_num + 1
         WHERE Title = @TaskGroupTitle;
 
+        IF @@ROWCOUNT = 0
+        BEGIN
+            INSERT INTO @ErrorUpdates (TaskTitle, TaskGroupTitle)
+            VALUES (@TaskTitle, @TaskGroupTitle);
+        END
+
         UPDATE Task
         SET TaskGroupCode = @TaskGroupCode, Task.[State] = 'ToDo'
         WHERE Title = @TaskTitle;
+
+        IF @@ROWCOUNT = 0
+        BEGIN
+            INSERT INTO @ErrorUpdates (TaskTitle, TaskGroupTitle)
+            VALUES (@TaskTitle, @TaskGroupTitle);
+        END
 
         -- Update the overall priority of the group task
         DECLARE @overallPrior int;
@@ -42,10 +59,25 @@ BEGIN
         WHERE Task_Group.Title = @TaskGroupTitle;
 
         COMMIT TRANSACTION;
+
+        -- Check for error updates
+        IF EXISTS (SELECT * FROM @ErrorUpdates)
+        BEGIN
+            DECLARE @ErrorMsg varchar(MAX);
+            SET @ErrorMsg = 'Error on the following updates:';
+
+            SELECT @ErrorMsg = @ErrorMsg + CHAR(13) + CHAR(10) + 'Task: ' + TaskTitle + ', Group: ' + TaskGroupTitle
+            FROM @ErrorUpdates;
+
+            PRINT @ErrorMsg;
+        END
     END TRY
     BEGIN CATCH
         IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'Error on adding task ' + @TaskTitle + ' to group ' + @TaskGroupTitle;
             ROLLBACK TRANSACTION;
-
+        END
     END CATCH;
 END
+GO

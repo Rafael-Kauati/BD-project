@@ -6,9 +6,6 @@ go
 /*ALTER DATABASE [Routine View]
 SET CONTAINMENT = PARTIAL;*/
 
-
-
-
 SELECT
     CONCAT('DROP ',ROUTINE_TYPE,' `',ROUTINE_SCHEMA,'`.`',ROUTINE_NAME,'`;') as stmt
 FROM information_schema.ROUTINES;
@@ -76,7 +73,7 @@ create table [Task] (
 	[State] varchar(10) ,
 	--[StackPos] int default null,
 	[Priority] int,
-	[StackID] int foreign key references [Stack] (StackID) default 1,
+	[StackID] int foreign key references [Stack] (StackID), 
 	[Conclusion] datetime default null,
 	[UserID] int foreign key references [User] (ID),
 	[TaskGroupCode] int foreign key references [Task_Group] (Code) 

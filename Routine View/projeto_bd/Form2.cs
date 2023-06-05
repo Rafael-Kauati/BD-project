@@ -15,7 +15,9 @@ namespace WindowsFormsApp
         static string connectionString = "data source=.\\SQLEXPRESS;integrated security=true;initial catalog=Routine View";
         private int userID = 0;
         private string[] taskGroupsNames;
-        private string taskSelected;
+        private string taskSelected, desc;
+        private int imp;
+        private DateTime dt;
         List<TaskGroupInfo> dadosList = new List<TaskGroupInfo>();
 
 
@@ -210,7 +212,7 @@ namespace WindowsFormsApp
             if (form4 == null || form4.IsDisposed)
             {
 
-                form4 = new Form4(this.userID , this.taskSelected, this);
+                form4 = new Form4(this.userID , this.taskSelected, this.desc, this.imp, this.dt, this);
                 form4.Show();
             }
             else
@@ -228,7 +230,7 @@ namespace WindowsFormsApp
                 editTask.Visible = true;
 
                 this.taskSelected = row.Cells[1].Value.ToString();
-                MessageBox.Show(taskSelected.ToString());
+                this.desc = row.Cells[2].Value.ToString();
 
             }
         }
@@ -241,7 +243,9 @@ namespace WindowsFormsApp
                 editTask.Visible = true;
 
                 this.taskSelected = row.Cells[1].Value.ToString();
-
+                this.desc = row.Cells[2].Value.ToString();
+                this.imp = int.Parse(row.Cells[3].Value.ToString());
+                this.dt = DateTime.Parse(row.Cells[4].Value.ToString());
             }
         }
 
@@ -253,7 +257,11 @@ namespace WindowsFormsApp
                 editTask.Visible = true;
 
                 this.taskSelected = row.Cells[1].Value.ToString();
-                MessageBox.Show(taskSelected.ToString());
+                this.desc = row.Cells[2].Value.ToString();
+                this.imp = int.Parse(row.Cells[3].Value.ToString());
+                this.dt = DateTime.Parse(row.Cells[4].Value.ToString());
+
+                //MessageBox.Show(taskSelected.ToString());
 
             }
         }

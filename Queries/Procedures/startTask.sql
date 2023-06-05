@@ -1,30 +1,37 @@
-use [Routine View]
-go
+USE [Routine View]
+GO
 
-drop procedure if exists startTask
-go
+DROP PROCEDURE IF EXISTS startTask
+GO
 
-create procedure startTask(@taskname varchar(30))
-as
-begin
+CREATE PROCEDURE startTask(@taskname varchar(100))
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION; -- Iniciar a transação
+        -- Update [Stack].CurrMaxTasks para StackID = 2
+        UPDATE [Stack]
+        SET CurrMaxTasks = CurrMaxTasks + 1
+        WHERE StackID = 2;
 
-	
-	update [Task]
-	set StackID = 2
-	where Task.Title = @taskname;
+      
+        -- Update [Stack].CurrMaxTasks para StackID = 1
+        UPDATE [Stack]
+        SET CurrMaxTasks = CurrMaxTasks - 1
+        WHERE StackID = 1;
 
-	update [Stack]
-	set CurrMaxTasks = CurrMaxTasks + 1
-	where [Stack].StackID = 2;
+        -- Update T.StackID
+        UPDATE T
+        SET T.StackID = T.StackID + 1
+        FROM [Task] T
+        WHERE T.Title = @taskname;
 
-
-
-	update [Stack]
-	set CurrMaxTasks = CurrMaxTasks - 1
-	where [Stack].StackID = 1;
-
-	
-end
-go
-
-
+        COMMIT TRANSACTION; -- Commit a transação
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0
+			PRINT 'Error on starting task : '+@taskname;
+			ROLLBACK; -- Rollback a transação em caso de erro
+    END CATCH
+END
+GO

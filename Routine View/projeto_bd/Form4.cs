@@ -18,12 +18,42 @@ namespace Routine_View_Forms
         static string connectionString = "data source=.\\SQLEXPRESS;integrated security=true;initial catalog=Routine View";
         private int userid = 0;
         private string tasktitle;
-        public Form4(int userid, string tasktitle,Form2 form2)
+        public Form4(int userid, string tasktitle, string desc, int imp, DateTime dt, Form2 form2)
         {
             InitializeComponent();
             this.userid = userid;
             this.tasktitle = tasktitle;
             this.form2 = form2;
+
+            textBox1.Text = this.tasktitle;
+            textBox2.Text = desc;
+            dateTimePicker1.Value = dt;
+
+            if (imp == 1)
+            {
+                radioButton1.Checked = true;
+            }
+
+            else if (imp == 2)
+            {
+                radioButton2.Checked = true;
+            }
+
+            else if (imp == 3)
+            {
+                radioButton3.Checked = true;
+            }
+
+            else if (imp == 4)
+            {
+                radioButton4.Checked = true;
+            }
+
+            else if (imp == 5)
+            {
+                radioButton5.Checked = true;
+            }
+
         }
 
 
@@ -49,9 +79,9 @@ namespace Routine_View_Forms
             else if (radioButton5.Checked)
                 importance = "5";
 
-            // Faça o que precisar com os valores obtidos das caixas de texto, do DateTimePicker e do radio input
-            // Por exemplo, você pode exibi-los em uma caixa de mensagem:
-            //string mensagem = $"Tarefa criada com sucesso\n\nTítulo: {taskTitle}\nDescrição: {description}\nPrazo: {formattedDeadline}\nImportância: {importance}";
+            //string mensagem = $"Tarefa criada com sucesso\n\nTítulo: {taskTitle}\nDescrição: {description}\nPrazo: {formattedDeadline}\nImportância: {importance}"; MessageBox.Show(mensagem);
+
+            /**/
             updateTask(taskTitle,
                description,
                int.Parse(importance),
@@ -62,6 +92,16 @@ namespace Routine_View_Forms
 
         private void updateTask(string title, string description, int importance, DateTime deadline, int userID)
         {
+            if (title == "")
+            {
+                title = null;
+            }
+
+            if (description == "")
+            {
+                description = null;
+            }
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -73,7 +113,9 @@ namespace Routine_View_Forms
                             Deadline = @deadline
                         WHERE UserID = @UserID AND Title = @Currtitle";
 
+
                 SqlCommand command = new SqlCommand(query, connection);
+
                 command.Parameters.AddWithValue("@title", title);
                 command.Parameters.AddWithValue("@description", description);
                 command.Parameters.AddWithValue("@imp", importance);
@@ -99,6 +141,14 @@ namespace Routine_View_Forms
 
         }
 
-        
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
