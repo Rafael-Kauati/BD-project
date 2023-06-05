@@ -39,10 +39,8 @@ namespace projeto_bd
 
         private void LoginBtn_click(object sender, EventArgs e)
         {
-            //string email = EmailBox.Text;
-            //string password = PasswordBox.Text;
-            string password = "Password";
-            string email = "danilo@ua.pt";
+            string email = EmailBox.Text;
+            string password = PasswordBox.Text;
 
 
             //const bool boolinha = true;
