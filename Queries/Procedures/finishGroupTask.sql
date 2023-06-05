@@ -1,49 +1,59 @@
-use [Routine View]
-go
+USE [Routine View]
+GO
 
-drop procedure if exists finishGroupTask
-go
+DROP PROCEDURE IF EXISTS finishGroupTask
+GO
 
-create procedure finishGroupTask (@taskGroup varchar(50))
-as
-begin
-	declare @unfinishedTasks int;
+CREATE PROCEDURE finishGroupTask (@taskGroup varchar(50))
+AS
+BEGIN
+    SET NOCOUNT ON;
 
-	select @unfinishedTasks = [Curr_undone_task_num]
-	from Task_Group
-	where Task_Group.Title = @taskGroup;
+    BEGIN TRY
+        BEGIN TRANSACTION;
 
-	-- Verificar se @unfinishedTasks é igual a zero
-	if @unfinishedTasks = 0
-	begin
-		update Task_Group
-		set Task_Group.isFinished = 'yes'
-		where Task_Group.Title =  @taskGroup;
+        DECLARE @unfinishedTasks int;
 
-		declare @sumPriority int;
+        SELECT @unfinishedTasks = [Curr_undone_task_num]
+        FROM Task_Group
+        WHERE Task_Group.Title = @taskGroup;
 
-		declare @lastTaskCode int;
-		declare @lastTaskDeadline datetime;
+        IF @unfinishedTasks = 0
+        BEGIN
+            UPDATE Task_Group
+            SET Task_Group.isFinished = 'yes'
+            WHERE Task_Group.Title = @taskGroup;
 
-		select @sumPriority = sum(TaskPriority)
-		from getTaskGroup(@taskGroup, 'Done');
+            DECLARE @sumPriority int;
 
-		select @lastTaskCode = t.TaskCode, @lastTaskDeadline = t.TaskDeadline
-		from dbo.getTaskGroup(@taskGroup, 'Done') t
-		where t.TaskConclusion = (select max(TaskConclusion) from dbo.getTaskGroup(@taskGroup, 'Done'));
+            DECLARE @lastTaskCode int;
+            DECLARE @lastTaskDeadline datetime;
 
-		INSERT INTO [Reward] ([Task_code], [Task_Deadline], [Date_Time], [Reward_Value])
-        VALUES (@lastTaskCode, 
-		ISNULL(@lastTaskDeadline, 
-		GETDATE()), 
-		GETDATE(), @sumPriority * 2);
+            SELECT @sumPriority = sum(TaskPriority)
+            FROM getTaskGroup(@taskGroup, 'Done');
 
-	end
-	else
-	begin
-		update Task_Group
-		set Task_Group.isFinished = 'no'
-		where Task_Group.Title =  @taskGroup;
-	end
-end
-go
+            SELECT @lastTaskCode = t.TaskCode, @lastTaskDeadline = t.TaskDeadline
+            FROM dbo.getTaskGroup(@taskGroup, 'Done') t
+            WHERE t.TaskConclusion = (SELECT max(TaskConclusion) FROM dbo.getTaskGroup(@taskGroup, 'Done'));
+
+            INSERT INTO [Reward] ([Task_code], [Task_Deadline], [Date_Time], [Reward_Value])
+            VALUES (@lastTaskCode, ISNULL(@lastTaskDeadline, GETDATE()), GETDATE(), @sumPriority * 2);
+        END
+        ELSE
+        BEGIN
+            UPDATE Task_Group
+            SET Task_Group.isFinished = 'no'
+            WHERE Task_Group.Title = @taskGroup;
+        END
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0
+        BEGIN
+			PRINT 'Error on finishing task group : '+@taskGroup;
+            ROLLBACK TRANSACTION;
+        END
+    END CATCH;
+END
+GO

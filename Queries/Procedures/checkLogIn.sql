@@ -15,7 +15,6 @@ BEGIN
     DECLARE @DecryptedPassword varbinary(8000);
     DECLARE @userid int;
 
-    -- Decrypt the password based on the provided email
     SELECT @DecryptedPassword = DecryptByPassPhrase('ThePassphrase', [Password])
     FROM [User]
     WHERE [Email] = @email;

@@ -23,9 +23,11 @@ namespace WindowsFormsApp
 
         private Form3 form3;
         private Form4 form4;
+        private AddGroup AddGroup;
         private TaskGroup tg;
 
         public TaskGroup TaskGroupInstance { get { return tg; } }
+        public AddGroup AddGroupInstance { get { return AddGroup; } }
         public Form3 Form3Instance
         {
             get { return form3; }
@@ -176,7 +178,20 @@ namespace WindowsFormsApp
             taskGroup.DataSource = dadosList;
         }
 
+        private void creatGroup_Click(object sender, EventArgs e)
+        {
+            if (AddGroup == null || AddGroup.IsDisposed)
+            {
 
+                AddGroup = new AddGroup(this.userID, this);
+                AddGroup.Show();
+            }
+            else
+            {
+                AddGroup.WindowState = FormWindowState.Normal;
+                AddGroup.Focus();
+            }
+        }
 
         public void LoadDataFromDatabase(string stackName)
         {
@@ -212,7 +227,7 @@ namespace WindowsFormsApp
             if (form4 == null || form4.IsDisposed)
             {
 
-                form4 = new Form4(this.userID , this.taskSelected, this.desc, this.imp, this.dt, this);
+                form4 = new Form4(this.userID, this.taskSelected, this.desc, this.imp, this.dt, this);
                 form4.Show();
             }
             else
@@ -432,7 +447,7 @@ namespace WindowsFormsApp
 
         }
 
-
+        
     }
 
 }

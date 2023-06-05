@@ -59,18 +59,6 @@ BEGIN
         WHERE Task_Group.Title = @TaskGroupTitle;
 
         COMMIT TRANSACTION;
-
-        -- Check for error updates
-        IF EXISTS (SELECT * FROM @ErrorUpdates)
-        BEGIN
-            DECLARE @ErrorMsg varchar(MAX);
-            SET @ErrorMsg = 'Error on the following updates:';
-
-            SELECT @ErrorMsg = @ErrorMsg + CHAR(13) + CHAR(10) + 'Task: ' + TaskTitle + ', Group: ' + TaskGroupTitle
-            FROM @ErrorUpdates;
-
-            PRINT @ErrorMsg;
-        END
     END TRY
     BEGIN CATCH
         IF @@TRANCOUNT > 0

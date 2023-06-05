@@ -56,3 +56,4 @@ C:\Users\kauat\OneDrive\Documentos\BD\bd-curr\BD-project\Routine View\projeto_bd
 C:\Users\kauat\OneDrive\Documentos\BD\bd-curr\BD-project\Routine View\projeto_bd\obj\Debug\net6.0-windows\Routine-View-Forms.pdb
 C:\Users\kauat\OneDrive\Documentos\BD\bd-curr\BD-project\Routine View\projeto_bd\obj\Debug\net6.0-windows\Routine-View-Forms.genruntimeconfig.cache
 C:\Users\kauat\OneDrive\Documentos\BD\bd-curr\BD-project\Routine View\projeto_bd\obj\Debug\net6.0-windows\ref\Routine-View-Forms.dll
+C:\Users\kauat\OneDrive\Documentos\BD\bd-curr\BD-project\Routine View\projeto_bd\obj\Debug\net6.0-windows\Routine_View_Forms.AddGroup.resources

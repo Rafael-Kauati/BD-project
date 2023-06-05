@@ -41,7 +41,6 @@
             timer7 = new System.Windows.Forms.Timer(components);
             radioButton4 = new RadioButton();
             radioButton3 = new RadioButton();
-            radioButton2 = new RadioButton();
             radioButton1 = new RadioButton();
             label4 = new Label();
             button1 = new Button();
@@ -50,6 +49,7 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            radioButton2 = new RadioButton();
             SuspendLayout();
             // 
             // dateTimePicker1
@@ -92,17 +92,6 @@
             radioButton3.TabStop = true;
             radioButton3.Text = "3";
             radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(373, 225);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(31, 19);
-            radioButton2.TabIndex = 22;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "2";
-            radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
@@ -176,6 +165,17 @@
             label1.TabIndex = 14;
             label1.Text = "Description:";
             // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(373, 225);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(31, 19);
+            radioButton2.TabIndex = 22;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "2";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -215,7 +215,6 @@
         private System.Windows.Forms.Timer timer7;
         private RadioButton radioButton4;
         private RadioButton radioButton3;
-        private RadioButton radioButton2;
         private RadioButton radioButton1;
         private Label label4;
         private Button button1;
@@ -224,5 +223,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private RadioButton radioButton2;
     }
 }

@@ -30,6 +30,7 @@ namespace WindowsFormsApp
             label5 = new Label();
             visGroup = new Button();
             editTask = new Button();
+            creatGroup = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -183,7 +184,7 @@ namespace WindowsFormsApp
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(1112, 72);
+            label5.Location = new Point(1203, 72);
             label5.Name = "label5";
             label5.Size = new Size(75, 15);
             label5.TabIndex = 16;
@@ -210,9 +211,20 @@ namespace WindowsFormsApp
             editTask.Visible = false;
             editTask.Click += editTask_Click;
             // 
+            // creatGroup
+            // 
+            creatGroup.Location = new Point(948, 12);
+            creatGroup.Name = "creatGroup";
+            creatGroup.Size = new Size(187, 63);
+            creatGroup.TabIndex = 19;
+            creatGroup.Text = "Create new group";
+            creatGroup.UseVisualStyleBackColor = true;
+            creatGroup.Click += creatGroup_Click;
+            // 
             // Form2
             // 
             ClientSize = new Size(1823, 863);
+            Controls.Add(creatGroup);
             Controls.Add(editTask);
             Controls.Add(visGroup);
             Controls.Add(label5);
@@ -258,5 +270,6 @@ namespace WindowsFormsApp
         private Label label5;
         private Button visGroup;
         private Button editTask;
+        private Button creatGroup;
     }
 }

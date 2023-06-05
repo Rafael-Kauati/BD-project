@@ -31,6 +31,7 @@ BEGIN
     END TRY
     BEGIN CATCH
         IF @@TRANCOUNT > 0
+			PRINT 'Error on concluding task '+@TaskTitle+' from task group : '+str(@TaskGroupCode);
             ROLLBACK TRANSACTION;
 
     END CATCH;
