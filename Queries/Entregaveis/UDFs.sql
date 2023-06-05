@@ -20,9 +20,6 @@ RETURN(
 	from  [Task_Group] g 
 	join [Task_Group_Assoc] a on g.Assoc_code = a.Assoc_Code
 	where g.[userID] = @userid
-	--join [Task] t on g.Code = t.TaskGroupCode 
-	--where t.UserID = @userid
-	--where t.UserID = @userid
 );
 go
 
