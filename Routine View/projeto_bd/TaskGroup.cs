@@ -15,7 +15,7 @@ namespace Routine_View_Forms
 {
     public partial class TaskGroup : Form
     {
-        static string connectionString = "data source=.\\SQLEXPRESS;integrated security=true;initial catalog=Routine View";
+        private static string connectionString = "Data Source=mednat.ieeta.pt,8101;Initial Catalog=p10g6;User ID=p10g6;Password=Bd2504!;";
         private string group;
         private AddTaskToGroup adder;
         private Form2 f2;

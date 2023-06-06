@@ -1,5 +1,5 @@
-use [Routine View]
-go
+--use [Routine View]
+--go
 
 DROP TRIGGER IF EXISTS updateTask;
 GO

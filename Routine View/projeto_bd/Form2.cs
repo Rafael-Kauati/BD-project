@@ -12,7 +12,7 @@ namespace WindowsFormsApp
 
     public partial class Form2 : Form
     {
-        static string connectionString = "data source=.\\SQLEXPRESS;integrated security=true;initial catalog=Routine View";
+        private static string connectionString = "Data Source=mednat.ieeta.pt,8101;Initial Catalog=p10g6;User ID=p10g6;Password=Bd2504!;";
         private int userID = 0;
         private string[] taskGroupsNames;
         private string taskSelected, desc;

@@ -15,7 +15,7 @@ namespace Routine_View_Forms
     public partial class Form4 : Form
     {
         private Form2 form2 = null;
-        static string connectionString = "data source=.\\SQLEXPRESS;integrated security=true;initial catalog=Routine View";
+        string connectionString = "Data Source=mednat.ieeta.pt,8101;Initial Catalog=p10g6;User ID=p10g6;Password=Bd2504!;";
         private int userid = 0;
         private string tasktitle;
         public Form4(int userid, string tasktitle, string desc, int imp, DateTime dt, Form2 form2)

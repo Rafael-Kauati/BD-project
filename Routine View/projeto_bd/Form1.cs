@@ -16,7 +16,7 @@ namespace projeto_bd
     public partial class Form1 : Form
     {
         private SqlConnection cn;
-        private string connectionString = "data source=.\\SQLEXPRESS;integrated security = true; initial catalog = Routine View";
+        private string connectionString = "Data Source=mednat.ieeta.pt,8101;Initial Catalog=p10g6;User ID=p10g6;Password=Bd2504!;";
         private Form2 form2;
 
         public Form2 Form2Instance
@@ -30,6 +30,7 @@ namespace projeto_bd
         {
             InitializeComponent();
             cn = new SqlConnection(connectionString);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

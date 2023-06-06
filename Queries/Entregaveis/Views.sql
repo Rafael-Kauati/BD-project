@@ -1,5 +1,5 @@
-use [Routine View]
-go
+--use [Routine View]
+--go
 
 drop view if exists high_Priority_Tasks
 go

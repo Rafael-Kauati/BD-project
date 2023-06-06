@@ -1,5 +1,5 @@
-use [Routine View]
-go
+--use [Routine View]
+--go
 
 DROP PROCEDURE IF EXISTS startTask
 GO

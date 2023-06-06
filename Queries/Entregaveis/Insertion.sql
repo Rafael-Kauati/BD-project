@@ -1,5 +1,5 @@
-use [Routine View]
-go
+--use [Routine View]
+--go
 
 
 INSERT INTO [User] ([Name], [Email], [Password], [DoB]) 
