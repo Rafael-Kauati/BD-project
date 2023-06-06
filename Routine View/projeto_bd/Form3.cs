@@ -15,7 +15,8 @@ namespace projeto_bd
 {
     public partial class Form3 : Form
     {
-       
+        private static string connectionString = "Data Source=mednat.ieeta.pt,8101;Initial Catalog=p10g6;User ID=p10g6;Password=Bd2504!;";
+
 
         public int usrid = 0;
         private Form2 form2; // Variável para armazenar a referência do Form2
@@ -71,7 +72,6 @@ namespace projeto_bd
 
         public static void createTask(string title, string description, int importance, DateTime deadline, int userID)
         {
-             string connectionString = "Data Source=mednat.ieeta.pt,8101;Initial Catalog=p10g6;User ID=p10g6;Password=Bd2504!;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

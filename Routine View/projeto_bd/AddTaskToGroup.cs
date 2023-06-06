@@ -14,6 +14,8 @@ namespace Routine_View_Forms
 {
     public partial class AddTaskToGroup : Form
     {
+        private static string connectionString = "Data Source=mednat.ieeta.pt,8101;Initial Catalog=p10g6;User ID=p10g6;Password=Bd2504!;";
+
         private TaskGroup group = null;
         private string taskGroup;
         private int userid = 0;
@@ -66,7 +68,6 @@ namespace Routine_View_Forms
 
         public static void createTask(string title, string description, int importance, DateTime deadline, int userID, string taskGroup)
         {
-             string connectionString = "Data Source=mednat.ieeta.pt,8101;Initial Catalog=p10g6;User ID=p10g6;Password=Bd2504!;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
