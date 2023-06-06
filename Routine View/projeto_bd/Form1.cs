@@ -10,13 +10,14 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using WindowsFormsApp;
 using Microsoft.VisualBasic.ApplicationServices;
+using Routine_View_Forms;
 
 namespace projeto_bd
 {
     public partial class Form1 : Form
     {
         private SqlConnection cn;
-        private static string connectionString = "Data Source=mednat.ieeta.pt,8101;Initial Catalog=p10g6;User ID=p10g6;Password=Bd2504!;";
+        public static string connectionString = ConnectionStringHelper.ConnectionString;
         private Form2 form2;
 
         public Form2 Form2Instance

@@ -14,7 +14,7 @@ namespace Routine_View_Forms
 {
     public partial class AddTaskToGroup : Form
     {
-        private static string connectionString = "Data Source=mednat.ieeta.pt,8101;Initial Catalog=p10g6;User ID=p10g6;Password=Bd2504!;";
+        private static string connectionString = ConnectionStringHelper.ConnectionString;
 
         private TaskGroup group = null;
         private string taskGroup;

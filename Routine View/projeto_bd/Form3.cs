@@ -10,12 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using WindowsFormsApp;
+using Routine_View_Forms;
 
 namespace projeto_bd
 {
     public partial class Form3 : Form
     {
-        private static string connectionString = "Data Source=mednat.ieeta.pt,8101;Initial Catalog=p10g6;User ID=p10g6;Password=Bd2504!;";
+        private static string connectionString = ConnectionStringHelper.ConnectionString;
 
 
         public int usrid = 0;
