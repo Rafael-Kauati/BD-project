@@ -28,6 +28,8 @@ Storage Procedures e Triggers
 
 <h1>How to Run</h1>
 
-<h2>Os scripts SQL  se encontram na pasta SQL/ do projeto(as tabelas, UDFs, SPs, Triggers, Views e Inserts foram previamente inseridos na DB das aulas) e aplicação feita em Windows Forms na pasta App/. Para abrir a aplicação WF, recomenda-se utilizar a opção “Abrir um projeto ou uma solução”,na  página inicial do “Visual Studio na página inicial do Visual Studio Enterprise e Navegar até a pasta App e selecionar a solução Routine-View-Forms.sln”. No ficheiro ConnectionStringHelper.cs mudar na variável stática "connectionString"  os campos ID e Password para os dos respectivos utilizadores.
+<h2>Os scripts SQL  se encontram na pasta SQL/ do projeto e aplicação feita em Windows Forms na pasta App/. Para abrir a aplicação WF, recomenda-se utilizar a opção “Abrir um projeto ou uma solução”,na  página inicial do Visual Studio e Navegar até a pasta App e selecionar a solução Routine-View-Forms.sln
+No ficheiro ConnectionStringHelper.cs mudar na variável estática “connectionString”  os campos ID e Password para os dos respectivos utilizadores.
 
-Por fim, a aplicação estará pronta para conectar com a base de dados das aulas e operar com a camada de dados do projeto.</h2>
+Por fim, a aplicação estará pronta para conectar com a base de dados das aulas e operar com a camada de dados do projeto.
+</h2>
