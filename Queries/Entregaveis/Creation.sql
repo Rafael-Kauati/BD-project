@@ -58,10 +58,8 @@ create table Task_Group(
 	[isFinished] varchar(5) default 'no',
     [Num_max_task] int default 10, 
     [Curr_undone_task_num] int not null default 0,
-    --[Curr_toDo_task_num] substituir esta coluna por um procedure
     [OveralPriority] int not null default  5,
     [DateOfCreation] datetime NOT NULL
-    --[StackPos] int default null
 
 );
 
@@ -71,11 +69,7 @@ create table [Task] (
 	[Description] varchar(100) NOT NULL,
 	Importance int NOT NULL,
 	Deadline datetime NOT NULL, 
-	--HoursLeft int TIMEDIFF(Deadline,  NOW),
-	--Por hora vamos tentar operar a prioridade no "backend do serviço"
-	--[Priority] int NOT NULL ,
 	[State] varchar(10) ,
-	--[StackPos] int default null,
 	[Priority] int,
 	[StackID] int foreign key references [Stack] (StackID), 
 	[Conclusion] datetime default null,
@@ -99,9 +93,6 @@ create table Reward(
     [Reward_Value] int not null default 10,
     [Date_Time] datetime NOT NULL,
 );
-
---create unique clustered index taskCode_index on [Task](Code);
---alter index taskCode_index on [Task] rebuild with (fillfactor = 70) ;
 
 
 create table Achieviement (
